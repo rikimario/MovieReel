@@ -16,16 +16,16 @@ export default function SimpleContainer() {
                         ml: 'auto',
                         mr: 20,
                     }} >
-                    <Typography className={styles.typography} variant='h4' color='white' sx={{ ml: 'auto', mt: 20, mr: 10 }}>
-                        <h1>Find <span>movies</span><br />
-                            to watch</h1>
+                    <Typography className={styles.typography} variant='h1' color='white' sx={{ ml: 'auto', mt: 20, mr: 10 }}>
+                        Find <span>movies</span><br />
+                        to watch
                     </Typography>
                     <Autocomplete
                         className={styles.autocomplete}
                         disablePortal
                         id="combo-box-demo"
                         options={top100Films}
-                        sx={{ width: 300, ml: 'auto', mr: 22, mt: 10 }}
+                        sx={{ width: 300, ml: 'auto', mr: 34, mt: 10 }}
                         renderInput={(params) => <TextField {...params} label="Movie" />}
                     />
                 </Box>
