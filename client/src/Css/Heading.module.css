@@ -3,8 +3,16 @@
     padding: 0;
 }
 
-.box {
-    background-image: url('https://cdn.mos.cms.futurecdn.net/KtEoX65GQotfy2jJm4kWN5.jpeg');
+.container {
+    background-image: url('https://wallpapercrafter.com/desktop1/547001-film-movie-movie-projector-darkness-projector.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.autocomplete {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.typography span {
+    color:  chocolate;
 }
