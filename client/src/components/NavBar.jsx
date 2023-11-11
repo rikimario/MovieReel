@@ -1,7 +1,9 @@
-import { Button, AppBar, Typography, Link, Toolbar, IconButton, Avatar } from "@mui/material";
+import { Button, AppBar, Typography, Link, Toolbar, Avatar, ThemeProvider } from "@mui/material";
+import styles from '../Css/Nav.module.css';
 
 export default function NavBar() {
     return (
+
         <AppBar
             position="static"
             color="default"
@@ -9,14 +11,13 @@ export default function NavBar() {
             sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
         >
             <Toolbar sx={{ flexWrap: 'wrap' }}>
-                <IconButton size="large" edge='start' color="error" aria-label="logo">
-                </IconButton>
                 <Typography variant="h4" component='div' noWrap sx={{ flexGrow: 1 }}>
-                    <Link href="/" className="logo">MovieReel</Link>
+                    <Link className={styles.logo} href="/">MovieReel</Link>
                 </Typography>
+
                 <nav>
                     <Link
-                        className="link"
+                        className={styles.navbar}
                         variant="button"
                         color="text.primary"
                         href="#"
@@ -25,6 +26,7 @@ export default function NavBar() {
                         Home
                     </Link>
                     <Link
+                        className={styles.navbar}
                         variant="button"
                         color="text.primary"
                         href="#"
@@ -33,6 +35,7 @@ export default function NavBar() {
                         About
                     </Link>
                     <Link
+                        className={styles.navbar}
                         variant="button"
                         color="text.primary"
                         href="#"
