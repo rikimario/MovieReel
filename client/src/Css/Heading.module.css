@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    background-image: url('https://cdn.mos.cms.futurecdn.net/KtEoX65GQotfy2jJm4kWN5.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
