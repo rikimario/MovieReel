@@ -5,6 +5,7 @@ import Heading from './components/Heading.jsx';
 import Footer from './components/Footer.jsx';
 import Home from './components/Home.jsx';
 import NavTwo from './components/NavTwo.jsx';
+import NewsLetter from './components/NewsLetter.jsx';
 
 const darkTheme = createTheme({
   palette: {
@@ -29,7 +30,7 @@ function App() {
 
 
 
-
+      <NewsLetter />
       <Footer />
     </ThemeProvider>
   )
