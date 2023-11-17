@@ -1,5 +1,6 @@
 import { Button, AppBar, Typography, Toolbar, Avatar, CssBaseline, Stack } from "@mui/material";
 import styles from '../Css/Nav.module.css';
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
 
@@ -18,19 +19,21 @@ export default function NavBar() {
                     <Stack direction='row' spacing={2}>
 
                         <Button
+                            component={Link}
+                            to='/'
                             className={styles.navbar}
                             variant="button"
                             color="text.primary"
-                            href="/"
                             sx={{ my: 1, mx: 1 }}
                         >
                             Home
                         </Button>
                         <Button
+                            component={Link}
+                            to='/about'
                             className={styles.navbar}
                             variant="button"
                             color="text.primary"
-                            href="#"
                             sx={{ my: 1, mx: 1 }}
                         >
                             About
@@ -39,7 +42,6 @@ export default function NavBar() {
                             className={styles.navbar}
                             variant="button"
                             color="text.primary"
-                            href="#"
                             sx={{ my: 1, mx: 1 }}
                         >
                             Contact
