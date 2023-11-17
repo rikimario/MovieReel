@@ -8,6 +8,7 @@ export default function NavBar() {
         <>
             <CssBaseline />
             <AppBar
+                position="static"
                 color="default"
                 elevation={0}
                 sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
@@ -30,7 +31,7 @@ export default function NavBar() {
                         </Button>
                         <Button
                             component={Link}
-                            to='/about'
+                            to='about'
                             className={styles.navbar}
                             variant="button"
                             color="text.primary"
@@ -39,12 +40,20 @@ export default function NavBar() {
                             About
                         </Button>
                         <Button
+                            component={Link}
+                            to='/create'
                             className={styles.navbar}
                             variant="button"
                             color="text.primary"
                             sx={{ my: 1, mx: 1 }}
                         >
-                            Contact
+                            Create
+                        </Button>
+                        <Button
+                            component={Link}
+                            to='/test'
+                        >
+                            Test
                         </Button>
                         <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
                             Login
