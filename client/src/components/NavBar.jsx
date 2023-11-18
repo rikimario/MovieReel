@@ -49,13 +49,12 @@ export default function NavBar() {
                         >
                             Create
                         </Button>
+                        
                         <Button
-                            component={Link}
-                            to='/test'
-                        >
-                            Test
-                        </Button>
-                        <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+                         component={Link}
+                         to='/login'
+                         variant="outlined" 
+                         sx={{ my: 1, mx: 1.5 }}>
                             Login
                         </Button>
                         <Button href="#" variant="contained" sx={{ my: 1, mx: 1.5 }}>
