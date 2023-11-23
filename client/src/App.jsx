@@ -5,6 +5,7 @@ import Heading from "./components/Heading.jsx";
 import About from "./components/About.jsx";
 import Create from "./components/Create.jsx";
 import Login from "./components/Login.jsx";
+import Register from "./components/Register.jsx";
 import Footer from "./components/Footer.jsx";
 
 const darkTheme = createTheme({
@@ -22,8 +23,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Heading />} />
         <Route path="about" element={<About />} />
-        <Route path="create" element={<Create />} />
+        {/* <Route path="create" element={<Create />} /> */}
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Routes>
 
       <Footer />
