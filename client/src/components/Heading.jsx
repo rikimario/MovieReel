@@ -7,6 +7,8 @@ import {
   Typography,
 } from "@mui/material";
 import PopularMovies from "./PopularMovies";
+import PopularTv from "./PopularTv";
+import ComingSoon from "./ComingSoon";
 
 export default function SimpleContainer() {
   return (
@@ -39,6 +41,8 @@ export default function SimpleContainer() {
         </Box>
       </Container>
       <PopularMovies />
+      <PopularTv />
+      <ComingSoon />
     </>
   );
 }
