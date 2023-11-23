@@ -6,7 +6,6 @@ import About from "./components/About.jsx";
 import Create from "./components/Create.jsx";
 import Login from "./components/Login.jsx";
 import Footer from "./components/Footer.jsx";
-import TopMovies from "./components/TopMovies.jsx";
 
 const darkTheme = createTheme({
   palette: {
@@ -19,7 +18,6 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
 
-      {/* <NavTwo /> */}
       <NavBar />
       <Routes>
         <Route path="/" element={<Heading />} />
@@ -28,7 +26,6 @@ function App() {
         <Route path="login" element={<Login />} />
       </Routes>
 
-      <TopMovies />
       <Footer />
       {/* <NewsLetter/> */}
     </ThemeProvider>
