@@ -7,7 +7,6 @@ import {
   CssBaseline,
   Stack,
 } from "@mui/material";
-import styles from "../Css/Nav.module.css";
 import { Link } from "react-router-dom";
 
 export default function NavBar() {
@@ -15,6 +14,7 @@ export default function NavBar() {
     <>
       <CssBaseline />
       <AppBar
+        className="nav-bar"
         position="static"
         color="default"
         elevation={0}
@@ -33,7 +33,6 @@ export default function NavBar() {
             <Button
               component={Link}
               to="/"
-              className={styles.navbar}
               variant="button"
               color="text.primary"
               sx={{ my: 1, mx: 1 }}
@@ -43,7 +42,6 @@ export default function NavBar() {
             <Button
               component={Link}
               to="about"
-              className={styles.navbar}
               variant="button"
               color="text.primary"
               sx={{ my: 1, mx: 1 }}
@@ -53,7 +51,6 @@ export default function NavBar() {
             <Button
               component={Link}
               to="/create"
-              className={styles.navbar}
               variant="button"
               color="text.primary"
               sx={{ my: 1, mx: 1 }}
@@ -63,7 +60,7 @@ export default function NavBar() {
 
             <Button
               component={Link}
-              to="/sign-in"
+              to="/login"
               variant="outlined"
               sx={{ my: 1, mx: 1.5 }}
             >
