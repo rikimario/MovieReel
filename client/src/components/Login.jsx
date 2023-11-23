@@ -29,7 +29,11 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
+      <Container
+        component="main"
+        maxWidth="sm"
+        sx={{ bgcolor: "white", my: 24.98 }}
+      >
         <CssBaseline />
         <Box
           sx={{
@@ -43,7 +47,7 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Welcome back!
           </Typography>
           <Box
             component="form"
@@ -81,7 +85,7 @@ export default function SignIn() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Login
             </Button>
             <Grid container>
               <Grid item xs>
