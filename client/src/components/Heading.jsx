@@ -20,7 +20,7 @@ export default function SimpleContainer() {
             // height: "90vh",
             display: "flex",
             alignItems: "left",
-            flexDirection: "column",
+            flexDirection: "row",
             ml: 20,
             mt: 20,
             mr: 140,
@@ -28,18 +28,12 @@ export default function SimpleContainer() {
           }}
         >
           <Typography variant="h1" color="white" sx={{ fontSize: 100 }}>
-            Find movies to watch
+            Find Movies and TV
           </Typography>
-
-          {/* <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={top100Films}
-            sx={{ width: 300, ml: "auto", mr: 34, mt: 10 }}
-            renderInput={(params) => <TextField {...params} label="Movie" />}
-        /> */}
+          {/* <img src="./public/pngegg.png" alt="" /> */}
         </Box>
       </Container>
+
       <PopularMovies />
       <PopularTv />
       <ComingSoon />
