@@ -6,37 +6,38 @@ import {
   CardContent,
   List,
   ListItemText,
+  Box,
 } from "@mui/material";
 
 export default function MovieCard() {
   return (
     <Container
+      maxWidth="false"
       sx={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "left",
+        justifyContent: "center",
         height: "100vh",
         maxHeight: 550,
         my: 20,
-        // bgcolor: "rgba(17,17,17,0.8)",
       }}
     >
       <Card
         sx={{
           display: "flex",
           flexDirection: "row",
-          minWidth: 300,
           bgcolor: "rgba(17,17,17,0.8)",
+          width: "100%",
         }}
       >
         <CardMedia
+          sx={{ width: "25%" }}
           component="img"
           alt="green iguana"
-          height="469"
-          width="fit-content"
+          height="550"
           image="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
         />
-        <CardContent>
+        <CardContent sx={{ width: "100%" }}>
           <Typography
             sx={{ width: 750 }}
             gutterBottom
@@ -44,12 +45,49 @@ export default function MovieCard() {
             component="div"
             color="white"
           >
-            <List>
-              <ListItemText>text 1</ListItemText>
-              <ListItemText>text 2</ListItemText>
-              <ListItemText>text 3</ListItemText>
-              <ListItemText>text 4</ListItemText>
-            </List>
+            <Container
+              maxWidth="false"
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                width: 1100,
+              }}
+            >
+              <Box>
+                <List sx={{ width: "100%" }}>
+                  <ListItemText
+                    primaryTypographyProps={{ fontSize: 25 }}
+                    primary="Director: Christopher Nolan"
+                    sx={{ pb: 4 }}
+                  />
+                  <ListItemText
+                    primaryTypographyProps={{ fontSize: 25 }}
+                    primary="Writers: Jonathan NolanChristopher NolanDavid S. Goyer"
+                    sx={{ pb: 4 }}
+                  />
+                  <ListItemText
+                    primaryTypographyProps={{ fontSize: 25 }}
+                    primary="Release: June 21, 2006"
+                    sx={{ pb: 4 }}
+                  />
+                </List>
+              </Box>
+              <Box sx={{ marginLeft: "auto" }}>
+                <List>
+                  <ListItemText
+                    primaryTypographyProps={{ fontSize: 25 }}
+                    primary="Genres: Science Fiction, Action, Thriller"
+                    sx={{ pb: 4 }}
+                  />
+                  <ListItemText
+                    primaryTypographyProps={{ fontSize: 25 }}
+                    primary="Runtime: 1h 24m"
+                    sx={{ pb: 4 }}
+                  />
+                </List>
+              </Box>
+            </Container>
           </Typography>
         </CardContent>
       </Card>
