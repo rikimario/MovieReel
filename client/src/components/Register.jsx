@@ -32,7 +32,7 @@ export default function Register() {
       <Container
         component="main"
         maxWidth="sm"
-        sx={{ bgcolor: "white", my: 20.1 }}
+        sx={{ bgcolor: "white", my: 20.6 }}
       >
         <CssBaseline />
         <Box
