@@ -7,6 +7,7 @@ import {
   Typography,
   Container,
 } from "@mui/material/";
+import { Link } from "react-router-dom";
 
 export default function PopularMovies() {
   return (
@@ -44,7 +45,9 @@ export default function PopularMovies() {
           </CardContent>
 
           <CardActions>
-            <Button variant="contained">Learn More</Button>
+            <Button variant="contained" component={Link} to="/movie-card">
+              Learn More
+            </Button>
           </CardActions>
         </Card>
 
