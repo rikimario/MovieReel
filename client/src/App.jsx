@@ -7,6 +7,7 @@ import Create from "./components/Create.jsx";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import Footer from "./components/Footer.jsx";
+import MovieCard from "./components/MovieCard.jsx";
 
 const darkTheme = createTheme({
   palette: {
@@ -26,6 +27,7 @@ function App() {
         {/* <Route path="create" element={<Create />} /> */}
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="movie-card" element={<MovieCard />} />
       </Routes>
 
       <Footer />
