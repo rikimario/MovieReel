@@ -3,25 +3,26 @@ import {
   AppBar,
   Typography,
   Toolbar,
-  Avatar,
   CssBaseline,
   Stack,
   Menu,
   MenuItem,
   Box,
   Tooltip,
-  IconButton,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const settings = [
-  "Profile",
-  "Watch List",
-  "Create List",
-  "Your Ratings",
-  "Logout",
+  { label: "My Account", path: "/about" },
+  { label: "Watch List", path: "/about" },
+  { label: "Create List", path: "/about" },
+  { label: "Your Ratings", path: "/about" },
+  { label: "Logout", path: "/about" },
 ];
+{
+  console.log(settings);
+}
 
 export default function NavBar() {
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -100,20 +101,20 @@ export default function NavBar() {
             >
               Register
             </Button>
-            {/* <Avatar
-              alt="Elon Musk"
-              src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982181284/elon-musk-9781982181284_hr.jpg"
-            /> */}
           </Stack>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 2 }}>
-                <Avatar
-                  alt="Elon Musk"
-                  src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982181284/elon-musk-9781982181284_hr.jpg"
-                />
-              </IconButton>
+              <Button
+                onClick={handleOpenUserMenu}
+                component={Link}
+                to="#"
+                variant="contained"
+                color="success"
+                sx={{ p: 2 }}
+              >
+                Profile
+              </Button>
             </Tooltip>
             <Menu
               sx={{ mt: "45px" }}
@@ -132,8 +133,13 @@ export default function NavBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem
+                  key={setting}
+                  onClick={handleCloseUserMenu}
+                  component={Link}
+                  to={setting.path}
+                >
+                  <Typography textAlign="center">{setting.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
