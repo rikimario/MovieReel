@@ -3,14 +3,13 @@ import PopularMovies from "./PopularMovies";
 import PopularTv from "./PopularTv";
 import ComingSoon from "./ComingSoon";
 
-export default function SimpleContainer() {
+export default function Heading() {
   return (
     <>
       <CssBaseline />
       <Container maxWidth="false">
         <Box
           sx={{
-            // height: "90vh",
             display: "flex",
             alignItems: "left",
             flexDirection: "row",
