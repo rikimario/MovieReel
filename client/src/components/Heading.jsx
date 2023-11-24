@@ -1,11 +1,4 @@
-import {
-  CssBaseline,
-  Box,
-  Container,
-  Autocomplete,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { CssBaseline, Box, Container, Typography } from "@mui/material";
 import PopularMovies from "./PopularMovies";
 import PopularTv from "./PopularTv";
 import ComingSoon from "./ComingSoon";
