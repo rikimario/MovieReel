@@ -8,6 +8,7 @@ import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import Footer from "./components/Footer.jsx";
 import MovieCard from "./components/MovieCard.jsx";
+import MyAccount from "./components/MyAccount.jsx";
 
 const darkTheme = createTheme({
   palette: {
@@ -28,6 +29,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="movie-card" element={<MovieCard />} />
+        <Route path="my-account" element={<MyAccount />} />
       </Routes>
 
       <Footer />
