@@ -89,6 +89,16 @@ export default function MovieCard() {
               </Box>
             </Container>
           </Typography>
+          <ListItemText
+            primaryTypographyProps={{ fontSize: 25, p: 2, color: "white" }}
+            primary="Cast: Robert Downey Jr, Chris Evans,Scarlett Johansson"
+          />
+          <ListItemText
+            primaryTypographyProps={{ fontSize: 25, p: 2, color: "white" }}
+            secondaryTypographyProps={{ fontSize: 20, color: "white" }}
+            primary="The Avengers Synopsis"
+            secondary="Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity."
+          />
         </CardContent>
       </Card>
     </Container>
