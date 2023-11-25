@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const settings = [
-  { label: "My Account", path: "/about" },
+  { label: "My Account", path: "/my-account" },
   { label: "Watch List", path: "/about" },
   { label: "Create List", path: "/about" },
   { label: "Your Ratings", path: "/about" },
