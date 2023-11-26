@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import * as authServices from "./services/authService.js";
@@ -15,20 +15,26 @@ import MovieCard from "./components/MovieCard.jsx";
 import MyAccount from "./components/MyAccount.jsx";
 
 function App() {
+  const navigate = useNavigate();
   const [auth, setAuth] = useState({});
 
   const loginSubmitHandler = async (values) => {
     const result = await authServices.login(values.email, values.password);
-
-    // setAuth(result);
     // localStorage.setItem("accessToken", result.accessToken);
 
-    // console.log(values);
-    console.log(result);
+    setAuth(result);
+    navigate("/");
+  };
+
+  const values = {
+    loginSubmitHandler,
+    username: auth.username,
+    email: auth.email,
+    isAuth: !!auth.username,
   };
 
   return (
-    <AuthContext.Provider value={{ loginSubmitHandler }}>
+    <AuthContext.Provider value={values}>
       <NavBar />
       <Routes>
         <Route path="/" element={<Heading />} />
