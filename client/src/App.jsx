@@ -1,5 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
+import { useState } from "react";
+
+import * as authServices from "./services/authService.js";
+import AuthContext from "./context/authContext.js";
+
 import NavBar from "./components/NavBar.jsx";
 import Heading from "./components/Heading.jsx";
 import About from "./components/About.jsx";
@@ -9,14 +13,18 @@ import Register from "./components/Register.jsx";
 import Footer from "./components/Footer.jsx";
 import MovieCard from "./components/MovieCard.jsx";
 import MyAccount from "./components/MyAccount.jsx";
-import { useState } from "react";
-import AuthContext from "./context/authContext.js";
 
 function App() {
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = (values) => {
-    console.log(values);
+  const loginSubmitHandler = async (values) => {
+    const result = await authServices.login(values.email, values.password);
+
+    // setAuth(result);
+    // localStorage.setItem("accessToken", result.accessToken);
+
+    // console.log(values);
+    console.log(result);
   };
 
   return (
