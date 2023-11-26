@@ -19,7 +19,10 @@ function App() {
   const [auth, setAuth] = useState({});
 
   const registerSubmitHandler = async (values) => {
-    console.log(values);
+    const result = await authServices.register(values.email, values.password);
+
+    setAuth(result);
+    navigate("/");
   };
 
   const loginSubmitHandler = async (values) => {
@@ -33,9 +36,9 @@ function App() {
   const values = {
     registerSubmitHandler,
     loginSubmitHandler,
-    username: auth.username,
+    username: auth.username || auth.email,
     email: auth.email,
-    isAuth: !!auth.username,
+    isAuth: !!auth.email,
   };
 
   return (
