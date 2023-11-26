@@ -14,14 +14,14 @@ import useForm from "../hooks/useForm";
 import { useContext } from "react";
 import AuthContext from "../context/authContext";
 
-// TODO remove, this demo shouldn't need to reset the theme.
-
 export default function Login() {
   const { loginSubmitHandler } = useContext(AuthContext);
+
   const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
     email: "",
     password: "",
   });
+
   return (
     <Container
       component="main"
@@ -43,8 +43,9 @@ export default function Login() {
         <Typography component="h1" variant="h5">
           Welcome back!
         </Typography>
-        <Box component="form" onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={onSubmit} sx={{ mt: 6.3 }}>
           <TextField
+            type="email"
             margin="normal"
             required
             fullWidth
@@ -68,10 +69,10 @@ export default function Login() {
             onChange={onChange}
             value={values.password}
           />
-          <FormControlLabel
+          {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
-          />
+          /> */}
           <Button
             type="submit"
             fullWidth
