@@ -11,7 +11,8 @@ import {
   Tooltip,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import AuthContext from "../context/authContext";
 
 const settings = [
   { label: "My Account", path: "/my-account" },
@@ -22,6 +23,8 @@ const settings = [
 ];
 
 export default function NavBar() {
+  const { isAuth, username } = useContext(AuthContext);
+
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -72,75 +75,71 @@ export default function NavBar() {
             >
               About
             </Button>
-            {/* <Button
-              component={Link}
-              to="/create"
-              variant="button"
-              color="text.primary"
-              sx={{ my: 1, mx: 1 }}
-            >
-              Create
-            </Button> */}
-
-            <Button
-              component={Link}
-              to="/login"
-              variant="outlined"
-              sx={{ my: 1, mx: 2.5 }}
-            >
-              Login
-            </Button>
-            <Button
-              component={Link}
-              to="/register"
-              variant="contained"
-              sx={{ my: 1, mx: 2.5 }}
-            >
-              Register
-            </Button>
+            {!isAuth && (
+              <>
+                <Button
+                  component={Link}
+                  to="/login"
+                  variant="outlined"
+                  sx={{ my: 1, mx: 2.5 }}
+                >
+                  Login
+                </Button>
+                <Button
+                  component={Link}
+                  to="/register"
+                  variant="contained"
+                  sx={{ my: 1, mx: 2.5 }}
+                >
+                  Register
+                </Button>
+              </>
+            )}
           </Stack>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <Button
-                onClick={handleOpenUserMenu}
-                component={Link}
-                to="#"
-                variant="contained"
-                color="success"
-                sx={{ p: 2 }}
-              >
-                Profile
-              </Button>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem
-                  key={setting}
-                  onClick={handleCloseUserMenu}
+          {isAuth && (
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <Button
+                  onClick={handleOpenUserMenu}
                   component={Link}
-                  to={setting.path}
+                  to="#"
+                  variant="contained"
+                  color="success"
+                  sx={{ p: 2 }}
                 >
-                  <Typography textAlign="center">{setting.label}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+                  {username}
+                </Button>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem
+                    key={setting}
+                    onClick={handleCloseUserMenu}
+                    component={Link}
+                    to={setting.path}
+                  >
+                    <Typography textAlign="center">{setting.label}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          )}
         </Toolbar>
       </AppBar>
     </>
