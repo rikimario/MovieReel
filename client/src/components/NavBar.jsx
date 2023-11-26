@@ -15,14 +15,11 @@ import { useState } from "react";
 
 const settings = [
   { label: "My Account", path: "/my-account" },
-  { label: "Watch List", path: "/about" },
-  { label: "Create List", path: "/about" },
-  { label: "Your Ratings", path: "/about" },
-  { label: "Logout", path: "/about" },
+  { label: "Watch List", path: "/watch-list" },
+  { label: "Create List", path: "/create-list" },
+  { label: "Your Ratings", path: "/your-ratings" },
+  { label: "Logout", path: "/logout" },
 ];
-{
-  console.log(settings);
-}
 
 export default function NavBar() {
   const [anchorElUser, setAnchorElUser] = useState(null);
