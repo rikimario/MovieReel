@@ -18,6 +18,10 @@ function App() {
   const navigate = useNavigate();
   const [auth, setAuth] = useState({});
 
+  const registerSubmitHandler = async (values) => {
+    console.log(values);
+  };
+
   const loginSubmitHandler = async (values) => {
     const result = await authServices.login(values.email, values.password);
     // localStorage.setItem("accessToken", result.accessToken);
@@ -27,6 +31,7 @@ function App() {
   };
 
   const values = {
+    registerSubmitHandler,
     loginSubmitHandler,
     username: auth.username,
     email: auth.email,
