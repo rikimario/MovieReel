@@ -1,7 +1,7 @@
 import { CssBaseline, Box, Container, Typography } from "@mui/material";
 import PopularMovies from "./PopularMovies";
-import PopularTv from "./PopularTv";
 import ComingSoon from "./ComingSoon";
+import TopRatedMovies from "./TopRatedMovies";
 
 export default function Heading() {
   return (
@@ -27,7 +27,7 @@ export default function Heading() {
       </Container>
 
       <PopularMovies />
-      <PopularTv />
+      <TopRatedMovies />
       <ComingSoon />
     </>
   );
