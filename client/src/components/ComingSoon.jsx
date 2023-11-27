@@ -7,8 +7,27 @@ import {
   Typography,
   Container,
 } from "@mui/material/";
+import { useEffect, useState } from "react";
+
+const tmdb =
+  "https://api.themoviedb.org/3/movie/upcoming?api_key=589f3d4f48689702b074a222aea6db87";
+const poster = "https://image.tmdb.org/t/p/w500";
 
 export default function ComingSoon() {
+  const [movies, setMovie] = useState([]);
+
+  useEffect(() => {
+    try {
+      fetch(tmdb)
+        .then((res) => res.json())
+        .then((data) => {
+          setMovie(data.results.slice(0, 5));
+        });
+    } catch (error) {
+      console.error("Error fetching movies from TMDB:", error);
+    }
+  }, []);
+
   return (
     <>
       <Typography
@@ -29,96 +48,26 @@ export default function ComingSoon() {
           pb: 20,
         }}
       >
-        <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="500"
-            width="fit-content"
-            image="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Ironman
-            </Typography>
-          </CardContent>
+        {movies.map((movie) => (
+          <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
+            <CardMedia
+              component="img"
+              alt={movie.title}
+              height="500"
+              width="fit-content"
+              image={`${poster}${movie.poster_path}`}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {movie.title}
+              </Typography>
+            </CardContent>
 
-          <CardActions>
-            <Button variant="contained">Learn More</Button>
-          </CardActions>
-        </Card>
-
-        <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="500"
-            image="https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_.jpg"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Ironman
-            </Typography>
-          </CardContent>
-
-          <CardActions>
-            <Button variant="contained">Learn More</Button>
-          </CardActions>
-        </Card>
-
-        <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="500"
-            image="https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Ironman
-            </Typography>
-          </CardContent>
-
-          <CardActions>
-            <Button variant="contained">Learn More</Button>
-          </CardActions>
-        </Card>
-
-        <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="500"
-            image="https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_.jpg"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Ironman
-            </Typography>
-          </CardContent>
-
-          <CardActions>
-            <Button variant="contained">Learn More</Button>
-          </CardActions>
-        </Card>
-
-        <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="500"
-            image="https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_.jpg"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Ironman
-            </Typography>
-          </CardContent>
-
-          <CardActions>
-            <Button variant="contained">Learn More</Button>
-          </CardActions>
-        </Card>
+            <CardActions>
+              <Button variant="contained">Learn More</Button>
+            </CardActions>
+          </Card>
+        ))}
       </Container>
     </>
   );
