@@ -15,7 +15,7 @@ const tmdb =
 const poster = "https://image.tmdb.org/t/p/w500";
 
 export default function PopularMovies() {
-  const [movies, setMovie] = useState({});
+  const [movies, setMovie] = useState([]);
 
   useEffect(() => {
     try {
@@ -28,20 +28,6 @@ export default function PopularMovies() {
       console.error("Error fetching movies from TMDB:", error);
     }
   }, []);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(baseUrl);
-  //       const data = await response.json();
-  //       setMovie(data.results);
-  //     } catch (error) {
-  //       console.error("Error fetching data from SWAPI:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
 
   return (
     <>
@@ -86,78 +72,6 @@ export default function PopularMovies() {
             </CardActions>
           </Card>
         ))}
-
-        {/* <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="500"
-            image="https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_.jpg"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Ironman
-            </Typography>
-          </CardContent>
-
-          <CardActions>
-            <Button variant="contained">Learn More</Button>
-          </CardActions>
-        </Card>
-
-        <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="500"
-            image="https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Ironman
-            </Typography>
-          </CardContent>
-
-          <CardActions>
-            <Button variant="contained">Learn More</Button>
-          </CardActions>
-        </Card>
-
-        <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="500"
-            image="https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_.jpg"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Ironman
-            </Typography>
-          </CardContent>
-
-          <CardActions>
-            <Button variant="contained">Learn More</Button>
-          </CardActions>
-        </Card>
-
-        <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="500"
-            image="https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_.jpg"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Ironman
-            </Typography>
-          </CardContent>
-
-          <CardActions>
-            <Button variant="contained">Learn More</Button>
-          </CardActions>
-        </Card> */}
       </Container>
     </>
   );
