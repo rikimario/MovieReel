@@ -1,18 +1,10 @@
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Button,
-  Typography,
-  Container,
-} from "@mui/material/";
+import { Typography, Container } from "@mui/material/";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import PopularMoviesCard from "./PopularMoviesCard";
 
 const tmdb =
   "https://api.themoviedb.org/3/movie/popular?api_key=589f3d4f48689702b074a222aea6db87";
-const poster = "https://image.tmdb.org/t/p/w500";
+const posterUrl = "https://image.tmdb.org/t/p/w500";
 
 export default function PopularMovies() {
   const [movies, setMovie] = useState([]);
@@ -50,27 +42,7 @@ export default function PopularMovies() {
         }}
       >
         {movies.map((movie) => (
-          <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
-            <CardMedia
-              component="img"
-              alt={movie.title}
-              height="500"
-              width="fit-content"
-              image={`${poster}${movie.poster_path}`}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {movie.title}
-              </Typography>
-              {/* <h3>{movies.Title}</h3> */}
-            </CardContent>
-
-            <CardActions>
-              <Button variant="contained" component={Link} to="/movie-card">
-                Learn More
-              </Button>
-            </CardActions>
-          </Card>
+          <PopularMoviesCard key={movie.id} {...movie} posterUrl={posterUrl} />
         ))}
       </Container>
     </>
