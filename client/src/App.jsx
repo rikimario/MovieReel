@@ -2,6 +2,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import * as authServices from "./services/authService.js";
+import Path from "./paths/paths.js";
 import AuthContext from "./context/authContext.js";
 
 import NavBar from "./components/NavBar.jsx";
@@ -59,13 +60,13 @@ function App() {
     <AuthContext.Provider value={values}>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Heading />} />
-        <Route path="about" element={<About />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path="movie-card" element={<MovieCard />} />
-        <Route path="my-account" element={<MyAccount />} />
+        <Route path={Path.Home} element={<Heading />} />
+        <Route path={Path.About} element={<About />} />
+        <Route path={Path.Login} element={<Login />} />
+        <Route path={Path.Register} element={<Register />} />
+        <Route path={Path.Logout} element={<Logout />} />
+        <Route path={Path.MovieCard} element={<MovieCard />} />
+        <Route path={Path.MyAccount} element={<MyAccount />} />
       </Routes>
 
       <Footer />
