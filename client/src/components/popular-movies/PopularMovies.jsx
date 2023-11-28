@@ -14,7 +14,6 @@ export default function PopularMovies() {
     const fetchData = async () => {
       try {
         const data = await movieService.getPopular();
-        console.log(data);
         setMovie(data.results.slice(0, 5));
       } catch (error) {
         console.error("Error fetching movies from TMDB:", error);
