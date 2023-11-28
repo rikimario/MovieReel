@@ -1,24 +1,27 @@
 import { Typography, Container } from "@mui/material/";
 import { useEffect, useState } from "react";
+
+import * as movieService from "../../services/movieService";
+
 import PopularMoviesCard from "./PopularMoviesCard";
 
-const tmdb =
-  "https://api.themoviedb.org/3/movie/popular?api_key=589f3d4f48689702b074a222aea6db87";
 const posterUrl = "https://image.tmdb.org/t/p/w500";
 
 export default function PopularMovies() {
   const [movies, setMovie] = useState([]);
 
   useEffect(() => {
-    try {
-      fetch(tmdb)
-        .then((res) => res.json())
-        .then((data) => {
-          setMovie(data.results.slice(0, 5));
-        });
-    } catch (error) {
-      console.error("Error fetching movies from TMDB:", error);
-    }
+    const fetchData = async () => {
+      try {
+        const data = await movieService.getPopular();
+        console.log(data);
+        setMovie(data.results.slice(0, 5));
+      } catch (error) {
+        console.error("Error fetching movies from TMDB:", error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
