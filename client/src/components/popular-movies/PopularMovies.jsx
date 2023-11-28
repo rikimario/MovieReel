@@ -6,21 +6,22 @@ import * as movieService from "../../services/movieService";
 import PopularMoviesCard from "./PopularMoviesCard";
 
 const posterUrl = "https://image.tmdb.org/t/p/w500";
+const apiUrl =
+  "https://api.themoviedb.org/3/movie/popular?api_key=589f3d4f48689702b074a222aea6db87";
 
 export default function PopularMovies() {
   const [movies, setMovie] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await movieService.getPopular();
-        setMovie(data.results.slice(0, 5));
-      } catch (error) {
-        console.error("Error fetching movies from TMDB:", error);
-      }
-    };
-
-    fetchData();
+    try {
+      fetch(apiUrl)
+        .then((res) => res.json())
+        .then((data) => {
+          setMovie(data.results.slice(0, 5));
+        });
+    } catch (error) {
+      console.error("Error fetching movies from TMDB:", error);
+    }
   }, []);
 
   return (

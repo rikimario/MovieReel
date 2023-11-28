@@ -1,26 +1,25 @@
 import { Typography, Container } from "@mui/material/";
 import { useEffect, useState } from "react";
 
-import * as movieService from "../../services/movieService";
-
 import TopRatedCard from "./TopRatedCard";
 
 const posterUrl = "https://image.tmdb.org/t/p/w500";
+const apiUrl =
+  "https://api.themoviedb.org/3/movie/top_rated?api_key=589f3d4f48689702b074a222aea6db87";
 
 export default function TopRatedMovies() {
   const [movies, setMovie] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await movieService.getTopRated();
-        setMovie(data.results.slice(0, 5));
-      } catch (error) {
-        console.error("Error fetching movies from TMDB:", error);
-      }
-    };
-
-    fetchData();
+    try {
+      fetch(apiUrl)
+        .then((res) => res.json())
+        .then((data) => {
+          setMovie(data.results.slice(0, 5));
+        });
+    } catch (error) {
+      console.error("Error fetching movies from TMDB:", error);
+    }
   }, []);
 
   return (
