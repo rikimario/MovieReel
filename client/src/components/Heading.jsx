@@ -22,7 +22,6 @@ export default function Heading() {
           <Typography variant="h1" color="white" sx={{ fontSize: 100 }}>
             Find Movies and TV
           </Typography>
-          {/* <img src="./public/pngegg.png" alt="" /> */}
         </Box>
       </Container>
 
