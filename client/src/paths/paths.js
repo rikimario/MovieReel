@@ -3,9 +3,12 @@ const Path = {
   Login: "/login",
   Register: "/register",
   Logout: "/logout",
+  MyAccount: "/my-account",
   About: "/about",
   MovieDetails: "/movie-details",
-  MyAccount: "/my-account",
+  PopularMoviesPage: "/popular-movies-page",
+  ComingSoonPage: "/coming-soon-page",
+  TopRatedPage: "/top-rated-page",
 };
 
 export default Path;
