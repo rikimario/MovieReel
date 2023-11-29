@@ -6,6 +6,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import Path from "../../paths/paths";
 import { Link } from "react-router-dom";
 
 export default function PopularMoviesCard({
@@ -29,11 +30,14 @@ export default function PopularMoviesCard({
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
-        {/* <h3>{movies.Title}</h3> */}
       </CardContent>
 
       <CardActions>
-        <Button variant="contained" component={Link} to="/movie-card">
+        <Button
+          variant="contained"
+          component={Link}
+          to={`${Path.MovieCard}/${id}`}
+        >
           Learn More
         </Button>
       </CardActions>
