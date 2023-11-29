@@ -2,6 +2,8 @@ import { Typography, Container, Button } from "@mui/material/";
 import { useEffect, useState } from "react";
 
 import TopRatedCard from "./TopRatedCard";
+import { Link } from "react-router-dom";
+import Path from "../../paths/paths";
 
 const posterUrl = "https://image.tmdb.org/t/p/w500";
 const apiUrl =
@@ -46,7 +48,9 @@ export default function TopRatedMovies() {
           <TopRatedCard key={movie.id} {...movie} posterUrl={posterUrl} />
         ))}
       </Container>
-      <Button sx={{ color: "white" }}>View More</Button>
+      <Button component={Link} to={Path.TopRatedPage} sx={{ color: "white" }}>
+        View More
+      </Button>
     </>
   );
 }
