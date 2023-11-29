@@ -14,6 +14,9 @@ import Footer from "./components/Footer.jsx";
 import MovieDetails from "./components/MovieDetails.jsx";
 import MyAccount from "./components/MyAccount.jsx";
 import Logout from "./components/Logout.jsx";
+import PopularMoviesPage from "./components/popular-movies/PopularMoviesPage.jsx";
+import TopRatedPage from "./components/top-rated/TopRatedPage.jsx";
+import ComingSoonPage from "./components/coming-soon/ComingSoonPage.jsx";
 
 function App() {
   const navigate = useNavigate();
@@ -65,12 +68,14 @@ function App() {
         <Route path={Path.Login} element={<Login />} />
         <Route path={Path.Register} element={<Register />} />
         <Route path={Path.Logout} element={<Logout />} />
-        <Route path={`${Path.MovieDetails}/:id`} element={<MovieDetails />} />
         <Route path={Path.MyAccount} element={<MyAccount />} />
+        <Route path={`${Path.MovieDetails}/:id`} element={<MovieDetails />} />
+        <Route path={Path.PopularMoviesPage} element={<PopularMoviesPage />} />
+        <Route path={Path.TopRatedPage} element={<TopRatedPage />} />
+        <Route path={Path.ComingSoonPage} element={<ComingSoonPage />} />
       </Routes>
 
       <Footer />
-      {/* <NewsLetter/> */}
     </AuthContext.Provider>
   );
 }
