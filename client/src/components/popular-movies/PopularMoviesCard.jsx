@@ -36,7 +36,7 @@ export default function PopularMoviesCard({
         <Button
           variant="contained"
           component={Link}
-          to={`${Path.MovieCard}/${id}`}
+          to={`${Path.MovieDetails}/${id}`}
         >
           Learn More
         </Button>
