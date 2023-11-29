@@ -11,7 +11,7 @@ import About from "./components/About.jsx";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import Footer from "./components/Footer.jsx";
-import MovieCard from "./components/MovieCard.jsx";
+import MovieDetails from "./components/MovieDetails.jsx";
 import MyAccount from "./components/MyAccount.jsx";
 import Logout from "./components/Logout.jsx";
 
@@ -65,7 +65,7 @@ function App() {
         <Route path={Path.Login} element={<Login />} />
         <Route path={Path.Register} element={<Register />} />
         <Route path={Path.Logout} element={<Logout />} />
-        <Route path={`${Path.MovieCard}/:id`} element={<MovieCard />} />
+        <Route path={`${Path.MovieDetails}/:id`} element={<MovieDetails />} />
         <Route path={Path.MyAccount} element={<MyAccount />} />
       </Routes>
 
