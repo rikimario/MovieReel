@@ -9,7 +9,43 @@ import {
   Box,
 } from "@mui/material";
 
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+const apiKey = "589f3d4f48689702b074a222aea6db87";
+const apiUrl = "https://api.themoviedb.org/3/movie";
+
+import * as movieService from "../services/movieService";
+
+// const getOnePopular = async (movieId) => {
+//   const result = await request.get(`${apiUrl}/${movieId}?api_key=${apiKey}`);
+
+//   return result;
+// };
+
 export default function MovieCard() {
+  const [movie, setMovie] = useState({});
+  const { id: movieId } = useParams();
+  const posterUrl = "https://image.tmdb.org/t/p/w500";
+  const poster_path = movie.poster_path;
+  const poster = `${posterUrl}${poster_path}`;
+  console.log(poster);
+
+  useEffect(() => {
+    fetch(`${apiUrl}/${movieId}?api_key=${apiKey}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Not Found!");
+        }
+        return res.json();
+      })
+      .then(setMovie);
+  }, [movieId]);
+
+  // useEffect(() => {
+  //   movieService.getOnePopular(movieId).then(setMovie);
+  // }, [movieId]);
+
   return (
     <Container
       maxWidth="false"
@@ -18,7 +54,7 @@ export default function MovieCard() {
         alignItems: "center",
         justifyContent: "center",
         height: "100vh",
-        maxHeight: 550,
+        maxHeight: 600,
         my: 20,
       }}
     >
@@ -27,15 +63,14 @@ export default function MovieCard() {
           display: "flex",
           flexDirection: "row",
           bgcolor: "rgba(17,17,17,0.8)",
-          width: "100%",
+          width: "90%",
         }}
       >
         <CardMedia
-          sx={{ width: "25%" }}
+          sx={{ width: "25%", height: "100%" }}
           component="img"
-          alt="green iguana"
-          height="550"
-          image="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+          alt={movie.title}
+          image={poster}
         />
         <CardContent sx={{ width: "100%" }}>
           <Typography
@@ -58,46 +93,47 @@ export default function MovieCard() {
                 <List sx={{ width: "100%" }}>
                   <ListItemText
                     primaryTypographyProps={{ fontSize: 25 }}
-                    primary="Director: Christopher Nolan"
+                    primary={`Name: ${movie.title}`}
                     sx={{ pb: 4 }}
                   />
                   <ListItemText
                     primaryTypographyProps={{ fontSize: 25 }}
-                    primary="Writers: Jonathan NolanChristopher NolanDavid S. Goyer"
+                    primary={`Budget: ${movie.budget}$`}
                     sx={{ pb: 4 }}
                   />
                   <ListItemText
                     primaryTypographyProps={{ fontSize: 25 }}
-                    primary="Release: June 21, 2006"
+                    primary={`Release: ${movie.release_date}`}
                     sx={{ pb: 4 }}
                   />
                 </List>
               </Box>
               <Box sx={{ marginLeft: "auto" }}>
                 <List>
+                  {movie.genres && movie.genres.length > 0 && (
+                    <ListItemText
+                      primaryTypographyProps={{ fontSize: 25 }}
+                      primary={`Genres: ${movie.genres
+                        .map((genre) => genre.name)
+                        .join(", ")}`}
+                      sx={{ pb: 4 }}
+                    />
+                  )}
                   <ListItemText
                     primaryTypographyProps={{ fontSize: 25 }}
-                    primary="Genres: Science Fiction, Action, Thriller"
-                    sx={{ pb: 4 }}
-                  />
-                  <ListItemText
-                    primaryTypographyProps={{ fontSize: 25 }}
-                    primary="Runtime: 1h 24m"
+                    primary={`Runtime: ${movie.runtime}m`}
                     sx={{ pb: 4 }}
                   />
                 </List>
               </Box>
             </Container>
           </Typography>
-          <ListItemText
-            primaryTypographyProps={{ fontSize: 25, p: 2, color: "white" }}
-            primary="Cast: Robert Downey Jr, Chris Evans,Scarlett Johansson"
-          />
+
           <ListItemText
             primaryTypographyProps={{ fontSize: 25, p: 2, color: "white" }}
             secondaryTypographyProps={{ fontSize: 20, color: "white" }}
-            primary="The Avengers Synopsis"
-            secondary="Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity."
+            primary={`${movie.title} Synopsis`}
+            secondary={`${movie.overview}`}
           />
         </CardContent>
       </Card>
