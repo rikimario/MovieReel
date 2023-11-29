@@ -1,8 +1,6 @@
 import { Typography, Container } from "@mui/material/";
 import { useEffect, useState } from "react";
 
-import * as movieService from "../../services/movieService";
-
 import PopularMoviesCard from "./PopularMoviesCard";
 
 const posterUrl = "https://image.tmdb.org/t/p/w500";
