@@ -15,15 +15,7 @@ import { useParams } from "react-router-dom";
 const apiKey = "589f3d4f48689702b074a222aea6db87";
 const apiUrl = "https://api.themoviedb.org/3/movie";
 
-import * as movieService from "../services/movieService";
-
-// const getOnePopular = async (movieId) => {
-//   const result = await request.get(`${apiUrl}/${movieId}?api_key=${apiKey}`);
-
-//   return result;
-// };
-
-export default function MovieCard() {
+export default function MovieDetails() {
   const [movie, setMovie] = useState({});
   const { id: movieId } = useParams();
   const posterUrl = "https://image.tmdb.org/t/p/w500";
@@ -41,10 +33,6 @@ export default function MovieCard() {
       })
       .then(setMovie);
   }, [movieId]);
-
-  // useEffect(() => {
-  //   movieService.getOnePopular(movieId).then(setMovie);
-  // }, [movieId]);
 
   return (
     <Container
