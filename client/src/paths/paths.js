@@ -4,7 +4,7 @@ const Path = {
   Register: "/register",
   Logout: "/logout",
   About: "/about",
-  MovieCard: "/movie-card",
+  MovieDetails: "/movie-details",
   MyAccount: "/my-account",
 };
 
