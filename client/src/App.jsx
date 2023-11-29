@@ -65,7 +65,7 @@ function App() {
         <Route path={Path.Login} element={<Login />} />
         <Route path={Path.Register} element={<Register />} />
         <Route path={Path.Logout} element={<Logout />} />
-        <Route path={Path.MovieCard} element={<MovieCard />} />
+        <Route path={`${Path.MovieCard}/:id`} element={<MovieCard />} />
         <Route path={Path.MyAccount} element={<MyAccount />} />
       </Routes>
 
