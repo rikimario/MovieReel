@@ -1,11 +1,9 @@
 import {
-  Avatar,
   Button,
   Card,
   CardMedia,
   Container,
   Divider,
-  ImageList,
   Typography,
 } from "@mui/material";
 
