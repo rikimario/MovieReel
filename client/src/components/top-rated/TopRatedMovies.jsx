@@ -1,4 +1,4 @@
-import { Typography, Container } from "@mui/material/";
+import { Typography, Container, Button } from "@mui/material/";
 import { useEffect, useState } from "react";
 
 import TopRatedCard from "./TopRatedCard";
@@ -39,13 +39,14 @@ export default function TopRatedMovies() {
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
-          pb: 20,
+          py: 8,
         }}
       >
         {movies.map((movie) => (
           <TopRatedCard key={movie.id} {...movie} posterUrl={posterUrl} />
         ))}
       </Container>
+      <Button sx={{ color: "white" }}>View More</Button>
     </>
   );
 }

@@ -1,12 +1,4 @@
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Button,
-  Typography,
-  Container,
-} from "@mui/material/";
+import { Button, Typography, Container } from "@mui/material/";
 import { useEffect, useState } from "react";
 import ComingSoonCard from "./ComingSoonCard";
 
@@ -46,13 +38,14 @@ export default function ComingSoon() {
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
-          pb: 20,
+          py: 8,
         }}
       >
         {movies.map((movie) => (
           <ComingSoonCard key={movie.id} {...movie} posterUrl={posterUrl} />
         ))}
       </Container>
+      <Button sx={{ color: "white" }}>View More</Button>
     </>
   );
 }

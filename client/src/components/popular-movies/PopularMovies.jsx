@@ -1,4 +1,4 @@
-import { Typography, Container } from "@mui/material/";
+import { Typography, Container, Button } from "@mui/material/";
 import { useEffect, useState } from "react";
 
 import PopularMoviesCard from "./PopularMoviesCard";
@@ -39,13 +39,14 @@ export default function PopularMovies() {
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
-          pb: 20,
+          py: 8,
         }}
       >
         {movies.map((movie) => (
           <PopularMoviesCard key={movie.id} {...movie} posterUrl={posterUrl} />
         ))}
       </Container>
+      <Button sx={{ color: "white" }}>View More</Button>
     </>
   );
 }
