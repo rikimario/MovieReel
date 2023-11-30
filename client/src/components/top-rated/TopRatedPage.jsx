@@ -1,6 +1,8 @@
 import { Card, CardMedia, Container, Typography } from "@mui/material";
 
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Path from "../../paths/paths";
 
 const posterUrl = "https://image.tmdb.org/t/p/w500";
 const apiUrl =
@@ -8,6 +10,7 @@ const apiUrl =
 
 export default function TopRatedPage() {
   const [movies, setMovie] = useState([]);
+  const [hoveredMovie, setHoveredMovie] = useState();
 
   useEffect(() => {
     try {
@@ -52,22 +55,52 @@ export default function TopRatedPage() {
             bgcolor: "none",
           }}
         >
-          {movies.map((movie, index) => (
-            <Card
-              key={movie.id}
-              posterUrl={posterUrl}
-              sx={{
-                width: "fit-content",
-                mx: "auto",
-                my: 2,
-              }}
-            >
-              <CardMedia
-                component="img"
-                alt={movie.title}
-                image={`${posterUrl}${movie.poster_path}`}
-              />
-            </Card>
+          {movies.map((movie) => (
+            <Link to={`${Path.MovieDetails}/${movie.id}`} key={movie.id}>
+              <Card
+                key={movie.id}
+                posterUrl={posterUrl}
+                onMouseEnter={() => setHoveredMovie(movie.id)}
+                onMouseLeave={() => setHoveredMovie()}
+                sx={{
+                  position: "relative",
+                  width: "fit-content",
+                  mx: 1,
+                  my: 3,
+                  cursor: "pointer",
+                  transition: "transform 0.3s",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                  },
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  alt={movie.title}
+                  image={`${posterUrl}${movie.poster_path}`}
+                />
+                {hoveredMovie === movie.id && (
+                  <Typography
+                    variant="h6"
+                    component="div"
+                    sx={{
+                      position: "absolute",
+                      bottom: 0,
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      textAlign: "center",
+                      width: "100%",
+                      color: "white",
+                      text: "bold",
+                      opacity: 1,
+                      transition: "opacity 0.3s",
+                    }}
+                  >
+                    {movie.title}
+                  </Typography>
+                )}
+              </Card>
+            </Link>
           ))}
         </Container>
       </Container>
