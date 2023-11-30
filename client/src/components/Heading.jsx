@@ -11,7 +11,7 @@ export default function Heading() {
         <Box
           sx={{
             display: "flex",
-            alignItems: "left",
+            alignItems: "center",
             flexDirection: "row",
             ml: 20,
             mt: 20,
@@ -20,7 +20,7 @@ export default function Heading() {
           }}
         >
           <Typography variant="h1" color="white" sx={{ fontSize: 100 }}>
-            Find Movies and TV
+            Your Personal Movie Diary
           </Typography>
         </Box>
       </Container>
