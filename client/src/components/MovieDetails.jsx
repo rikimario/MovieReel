@@ -7,6 +7,9 @@ import {
   List,
   ListItemText,
   Box,
+  Rating,
+  colors,
+  Button,
 } from "@mui/material";
 
 import { useEffect, useState } from "react";
@@ -41,6 +44,7 @@ export default function MovieDetails() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        flexDirection: "column",
         height: "100vh",
         maxHeight: 600,
         my: 20,
@@ -123,6 +127,29 @@ export default function MovieDetails() {
             primary={`${movie.title} Synopsis`}
             secondary={`${movie.overview}`}
           />
+
+          <Container
+            sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+          >
+            <Container sx={{ mt: 5 }}>
+              <Typography variant="h5" color="white">
+                Your Ratings
+              </Typography>
+              <Rating
+                name="customized-10"
+                size="large"
+                defaultValue={1}
+                max={10}
+                sx={{
+                  bgcolor: "white",
+                  p: 1,
+                  m: 1,
+                  borderRadius: "10px",
+                }}
+              />
+              <Button variant="contained">Add to Watchlist</Button>
+            </Container>
+          </Container>
         </CardContent>
       </Card>
     </Container>
