@@ -6,7 +6,7 @@ const posterUrl = "https://image.tmdb.org/t/p/w500";
 const apiUrl =
   "https://api.themoviedb.org/3/movie/popular?api_key=589f3d4f48689702b074a222aea6db87";
 
-export default function PopularMoviesPage({ poster_path }) {
+export default function PopularMoviesPage() {
   const [movies, setMovie] = useState([]);
 
   useEffect(() => {
@@ -20,6 +20,7 @@ export default function PopularMoviesPage({ poster_path }) {
       console.error("Error fetching movies from TMDB:", error);
     }
   }, []);
+
   return (
     <Container
       component="main"
@@ -51,11 +52,32 @@ export default function PopularMoviesPage({ poster_path }) {
             bgcolor: "none",
           }}
         >
-          {movies.map((movie) => (
+          {/* {movies.length > 0 && (
+            <Card
+              key={movies[0].id}
+              sx={{
+                width: "fit-content",
+                height: "750px",
+                m: 1,
+              }}
+            >
+              <CardMedia
+                component="img"
+                alt={movies[0].title}
+                image={`${posterUrl}${movies[0].poster_path}`}
+              />
+            </Card>
+          )} */}
+
+          {movies.map((movie, index) => (
             <Card
               key={movie.id}
               posterUrl={posterUrl}
-              sx={{ width: "fit-content", m: 1 }}
+              sx={{
+                width: "fit-content",
+                mx: "auto",
+                my: 2,
+              }}
             >
               <CardMedia
                 component="img"
