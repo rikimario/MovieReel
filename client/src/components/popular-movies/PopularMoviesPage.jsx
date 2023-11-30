@@ -52,23 +52,6 @@ export default function PopularMoviesPage() {
             bgcolor: "none",
           }}
         >
-          {/* {movies.length > 0 && (
-            <Card
-              key={movies[0].id}
-              sx={{
-                width: "fit-content",
-                height: "750px",
-                m: 1,
-              }}
-            >
-              <CardMedia
-                component="img"
-                alt={movies[0].title}
-                image={`${posterUrl}${movies[0].poster_path}`}
-              />
-            </Card>
-          )} */}
-
           {movies.map((movie, index) => (
             <Card
               key={movie.id}
