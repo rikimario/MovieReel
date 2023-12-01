@@ -18,6 +18,7 @@ const settings = [
   { label: "My Account", path: "/my-account" },
   { label: "Watch List", path: "/watch-list" },
   { label: "Create List", path: "/create-list" },
+  { label: "Yor Lists", path: "/your-lists" },
   { label: "Your Ratings", path: "/your-ratings" },
   { label: "Logout", path: "/logout" },
 ];
