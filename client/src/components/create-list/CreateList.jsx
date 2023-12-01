@@ -60,8 +60,8 @@ export default function CreateList() {
             fullWidth
             id="list"
             label="List title"
-            name="list-title"
-            autoComplete="list-title"
+            name="title"
+            autoComplete="title"
             autoFocus
           />
           <TextField
