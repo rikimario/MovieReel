@@ -6,7 +6,6 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
-import YourLists from "../create-list/YourLists";
 import YourListsMyAcc from "./YourListsMyAcc";
 
 export default function MyAccount() {
@@ -57,6 +56,7 @@ export default function MyAccount() {
         <Divider variant="middle" sx={{ height: 20 }} />
 
         <YourListsMyAcc />
+
         <Divider variant="middle" sx={{ height: 20 }} />
 
         <Container sx={{ pt: 10 }}>
