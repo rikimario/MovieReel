@@ -12,11 +12,14 @@ import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import Footer from "./components/Footer.jsx";
 import MovieDetails from "./components/MovieDetails.jsx";
-import MyAccount from "./components/MyAccount.jsx";
+import MyAccount from "./components/my-account/MyAccount.jsx";
 import Logout from "./components/Logout.jsx";
 import PopularMoviesPage from "./components/popular-movies/PopularMoviesPage.jsx";
 import TopRatedPage from "./components/top-rated/TopRatedPage.jsx";
 import ComingSoonPage from "./components/coming-soon/ComingSoonPage.jsx";
+import CreateList from "./components/create-list/CreateList.jsx";
+import List from "./components/create-list/List.jsx";
+import YourLists from "./components/create-list/YourLists.jsx";
 
 function App() {
   const navigate = useNavigate();
@@ -69,6 +72,10 @@ function App() {
         <Route path={Path.Register} element={<Register />} />
         <Route path={Path.Logout} element={<Logout />} />
         <Route path={Path.MyAccount} element={<MyAccount />} />
+        <Route path={Path.CreateList} element={<CreateList />} />
+        <Route path={Path.YourLists} element={<YourLists />} />
+        <Route path={Path.List} element={<List />} />
+        {/* <Route path={`${Path.List}/:id`} element={<List />} /> */}
         <Route path={`${Path.MovieDetails}/:id`} element={<MovieDetails />} />
         <Route path={Path.PopularMoviesPage} element={<PopularMoviesPage />} />
         <Route path={Path.TopRatedPage} element={<TopRatedPage />} />
