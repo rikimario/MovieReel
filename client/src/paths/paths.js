@@ -5,7 +5,6 @@ const Path = {
   Logout: "/logout",
   MyAccount: "/my-account",
   CreateList: "/create-list",
-  YourLists: "your-lists",
   List: "/list",
   About: "/about",
   MovieDetails: "/movie-details",
