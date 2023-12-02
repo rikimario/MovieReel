@@ -1,12 +1,9 @@
 import * as request from "../lib/request";
 
-const baseUrl = "http://localhost:3030/data/lists";
+const baseUrl = "http://localhost:3030/data/reviews";
 
-const apiKey = "589f3d4f48689702b074a222aea6db87";
-const apiUrl = "https://api.themoviedb.org/3/movie";
-
-export const create = async (movieList) => {
-  const result = await request.post(baseUrl, movieList);
+export const create = async (movieReview) => {
+  const result = await request.post(baseUrl, movieReview);
 
   return result;
 };
