@@ -12,12 +12,14 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
+
 import AuthContext from "../context/authContext";
+import Path from "../paths/paths";
 
 const settings = [
   { label: "My Account", path: "/my-account" },
   { label: "Watch List", path: "/watch-list" },
-  { label: "Create List", path: "/create-list" },
+  { label: "Create Review", path: "/create-review" },
   { label: "Your Ratings", path: "/your-ratings" },
   { label: "Logout", path: "/logout" },
 ];
@@ -59,7 +61,7 @@ export default function NavBar() {
           <Stack direction="row" spacing={2}>
             <Button
               component={Link}
-              to="/"
+              to={Path.Home}
               variant="button"
               color="text.primary"
               sx={{ my: 1, mx: 1 }}
@@ -68,18 +70,27 @@ export default function NavBar() {
             </Button>
             <Button
               component={Link}
-              to="about"
+              to={Path.About}
               variant="button"
               color="text.primary"
               sx={{ my: 1, mx: 1 }}
             >
               About
             </Button>
+            <Button
+              component={Link}
+              to={Path.Reviews}
+              variant="button"
+              color="text.primary"
+              sx={{ my: 1, mx: 1 }}
+            >
+              Reviews
+            </Button>
             {!isAuth && (
               <>
                 <Button
                   component={Link}
-                  to="/login"
+                  to={Path.Login}
                   variant="outlined"
                   sx={{ my: 1, mx: 2.5 }}
                 >
@@ -87,7 +98,7 @@ export default function NavBar() {
                 </Button>
                 <Button
                   component={Link}
-                  to="/register"
+                  to={Path.Register}
                   variant="contained"
                   sx={{ my: 1, mx: 2.5 }}
                 >
