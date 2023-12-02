@@ -2,7 +2,7 @@ import { Box, Button, Card, CardMedia, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Path from "../../paths/paths";
 
-export default function YourLists({ _id, title, description }) {
+export default function YourReviews({ _id, title, review }) {
   return (
     <Card
       sx={{
@@ -22,13 +22,13 @@ export default function YourLists({ _id, title, description }) {
           variant="text"
           size="large"
           component={Link}
-          to={`${Path.List}/${_id}`}
+          to={`${Path.Review}/${_id}`}
           sx={{ ml: 2 }}
         >
           {title}
         </Button>
         <Typography variant="h6" sx={{ ml: 2 }}>
-          {description}
+          {review}
         </Typography>
       </Box>
     </Card>

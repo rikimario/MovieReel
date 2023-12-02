@@ -8,12 +8,12 @@ import {
   ListItemText,
   Box,
   Rating,
-  colors,
-  Button,
 } from "@mui/material";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+import ListButton from "./ListButton";
 
 const apiKey = "589f3d4f48689702b074a222aea6db87";
 const apiUrl = "https://api.themoviedb.org/3/movie";
@@ -21,10 +21,10 @@ const apiUrl = "https://api.themoviedb.org/3/movie";
 export default function MovieDetails() {
   const [movie, setMovie] = useState({});
   const { id: movieId } = useParams();
+
   const posterUrl = "https://image.tmdb.org/t/p/w500";
   const poster_path = movie.poster_path;
   const poster = `${posterUrl}${poster_path}`;
-  console.log(poster);
 
   useEffect(() => {
     fetch(`${apiUrl}/${movieId}?api_key=${apiKey}`)
@@ -147,7 +147,8 @@ export default function MovieDetails() {
                   borderRadius: "10px",
                 }}
               />
-              <Button variant="contained">Add to Watchlist</Button>
+
+              {/* <ListButton key={movie.id} /> */}
             </Container>
           </Container>
         </CardContent>

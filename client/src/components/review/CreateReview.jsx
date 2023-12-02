@@ -12,16 +12,16 @@ import { useNavigate } from "react-router-dom";
 import * as movieService from "../../services/movieService";
 import Path from "../../paths/paths";
 
-export default function CreateList() {
+export default function CreateReview() {
   const navigate = useNavigate();
 
-  const createSubmitListHandler = async (e) => {
+  const createSubmitReviewHandler = async (e) => {
     e.preventDefault();
 
-    const listData = Object.fromEntries(new FormData(e.currentTarget));
+    const reviewData = Object.fromEntries(new FormData(e.currentTarget));
 
     try {
-      const result = await movieService.create(listData);
+      const result = await movieService.create(reviewData);
       console.log(result);
 
       navigate(Path.MyAccount);
@@ -46,11 +46,11 @@ export default function CreateList() {
         }}
       >
         <Typography component="h1" variant="h5" sx={{ mt: 2 }}>
-          Create List
+          Create Review
         </Typography>
         <Box
           component="form"
-          onSubmit={createSubmitListHandler}
+          onSubmit={createSubmitReviewHandler}
           sx={{ mt: 6.3 }}
         >
           <TextField
@@ -58,8 +58,8 @@ export default function CreateList() {
             margin="normal"
             required
             fullWidth
-            id="list"
-            label="List title"
+            id="review"
+            label="Review title"
             name="title"
             autoComplete="title"
             autoFocus
@@ -69,8 +69,8 @@ export default function CreateList() {
             fullWidth
             multiline
             rows={5}
-            name="description"
-            label="Description"
+            name="review"
+            label="Review"
             id="description"
             autoComplete="description"
           />

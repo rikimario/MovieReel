@@ -1,7 +1,8 @@
 import { Container } from "@mui/material";
-import ListCard from "./ListCard";
+import { useMovieContext } from "../../context/movieContext";
+import ReviewCard from "./ReviewCard";
 
-export default function List() {
+export default function Review() {
   return (
     <Container
       component="main"
@@ -13,7 +14,9 @@ export default function List() {
         pt: 10,
       }}
     >
-      <ListCard />
+      {/* {selectedMovie.map((movie) => ( */}
+      <ReviewCard />
+      {/* ))} */}
     </Container>
   );
 }

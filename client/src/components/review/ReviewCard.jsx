@@ -1,6 +1,6 @@
 import { Card, CardMedia, Container, Typography } from "@mui/material";
 
-export default function ListCard() {
+export default function ListCard({ title }) {
   return (
     <Container sx={{ pt: 10 }}>
       <Typography component="h1" variant="h3">
@@ -21,6 +21,9 @@ export default function ListCard() {
             alt="green iguana"
             image="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
           />
+          <Typography variant="h5" sx={{ color: "white" }}>
+            Name:
+          </Typography>
         </Card>
       </Container>
     </Container>

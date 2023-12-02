@@ -1,7 +1,7 @@
 import { CssBaseline, Box, Container, Typography } from "@mui/material";
-import PopularMovies from "./popular-movies/PopularMovies";
-import ComingSoon from "./coming-soon/ComingSoon";
-import TopRatedMovies from "./top-rated/TopRatedMovies";
+import PopularMovies from "./movies-popular/PopularMovies";
+import ComingSoon from "./movies-coming-soon/ComingSoon";
+import TopRatedMovies from "./movies-top-rated/TopRatedMovies";
 
 export default function Heading() {
   return (
