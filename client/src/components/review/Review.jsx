@@ -1,5 +1,4 @@
 import { Container } from "@mui/material";
-import { useMovieContext } from "../../context/movieContext";
 import ReviewCard from "./ReviewCard";
 
 export default function Review() {
@@ -14,9 +13,7 @@ export default function Review() {
         pt: 10,
       }}
     >
-      {/* {selectedMovie.map((movie) => ( */}
       <ReviewCard />
-      {/* ))} */}
     </Container>
   );
 }
