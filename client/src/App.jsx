@@ -20,6 +20,7 @@ import TopRatedPage from "./components/movies-top-rated/TopRatedPage.jsx";
 import ComingSoonPage from "./components/movies-coming-soon/ComingSoonPage.jsx";
 import CreateReview from "./components/review/CreateReview.jsx";
 import Review from "./components/review/Review.jsx";
+import Reviews from "./components/review/Reviews.jsx";
 
 function App() {
   const navigate = useNavigate();
@@ -63,30 +64,26 @@ function App() {
   };
 
   return (
-    <MovieProvider>
-      <AuthContext.Provider value={values}>
-        <NavBar />
-        <Routes>
-          <Route path={Path.Home} element={<Heading />} />
-          <Route path={Path.About} element={<About />} />
-          <Route path={Path.Login} element={<Login />} />
-          <Route path={Path.Register} element={<Register />} />
-          <Route path={Path.Logout} element={<Logout />} />
-          <Route path={Path.MyAccount} element={<MyAccount />} />
-          <Route path={Path.CreateReview} element={<CreateReview />} />
-          <Route path={`${Path.Review}/:id`} element={<Review />} />
-          <Route path={`${Path.MovieDetails}/:id`} element={<MovieDetails />} />
-          <Route
-            path={Path.PopularMoviesPage}
-            element={<PopularMoviesPage />}
-          />
-          <Route path={Path.TopRatedPage} element={<TopRatedPage />} />
-          <Route path={Path.ComingSoonPage} element={<ComingSoonPage />} />
-        </Routes>
+    <AuthContext.Provider value={values}>
+      <NavBar />
+      <Routes>
+        <Route path={Path.Home} element={<Heading />} />
+        <Route path={Path.About} element={<About />} />
+        <Route path={Path.Login} element={<Login />} />
+        <Route path={Path.Register} element={<Register />} />
+        <Route path={Path.Logout} element={<Logout />} />
+        <Route path={Path.MyAccount} element={<MyAccount />} />
+        <Route path={Path.CreateReview} element={<CreateReview />} />
+        <Route path={`${Path.Review}/:id`} element={<Review />} />
+        <Route path={Path.Reviews} element={<Reviews />} />
+        <Route path={`${Path.MovieDetails}/:id`} element={<MovieDetails />} />
+        <Route path={Path.PopularMoviesPage} element={<PopularMoviesPage />} />
+        <Route path={Path.TopRatedPage} element={<TopRatedPage />} />
+        <Route path={Path.ComingSoonPage} element={<ComingSoonPage />} />
+      </Routes>
 
-        <Footer />
-      </AuthContext.Provider>
-    </MovieProvider>
+      <Footer />
+    </AuthContext.Provider>
   );
 }
 
