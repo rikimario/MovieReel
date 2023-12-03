@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import * as movieService from "../../services/movieService";
+import * as reviewService from "../../services/reviewService";
 import Path from "../../paths/paths";
 
 export default function CreateReview() {
@@ -21,7 +21,7 @@ export default function CreateReview() {
     const reviewData = Object.fromEntries(new FormData(e.currentTarget));
 
     try {
-      const result = await movieService.create(reviewData);
+      const result = await reviewService.create(reviewData);
       console.log(result);
 
       navigate(Path.MyAccount);

@@ -1,6 +1,6 @@
 import { Container, Typography } from "@mui/material";
 
-import * as movieService from "../../services/movieService";
+import * as reviewService from "../../services/reviewService";
 
 import YourReviews from "../review/YourReviews";
 import { useEffect, useState } from "react";
@@ -9,7 +9,7 @@ export default function YourReviewsMyAcc() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    movieService
+    reviewService
       .getAll()
       .then((result) => setReviews(result))
       .catch((err) => {
