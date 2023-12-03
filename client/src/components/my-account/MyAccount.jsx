@@ -1,11 +1,4 @@
-import {
-  Button,
-  Card,
-  CardMedia,
-  Container,
-  Divider,
-  Typography,
-} from "@mui/material";
+import { Card, CardMedia, Container, Divider, Typography } from "@mui/material";
 import YourReviewsMyAcc from "./YourReviewMyAcc";
 
 export default function MyAccount() {
@@ -35,9 +28,6 @@ export default function MyAccount() {
           <img src="https://miro.medium.com/max/900/1*hy3_Usq8bFoxp4fng-Lt4w.jpeg" />
           <Container sx={{ bgcolor: "white", ml: 1 }}>
             <Typography component="h1" variant="h4" sx={{ p: 2 }}>
-              Username: rikimario
-            </Typography>
-            <Typography component="h1" variant="h4" sx={{ p: 2 }}>
               First name: Mario
             </Typography>
             <Typography component="h1" variant="h4" sx={{ p: 2 }}>
@@ -46,11 +36,6 @@ export default function MyAccount() {
             <Typography component="h1" variant="h4" sx={{ p: 2 }}>
               Email: mario@abv.bg
             </Typography>
-            <Container sx={{ pt: 6 }}>
-              <Button variant="contained" size="large">
-                Edit
-              </Button>
-            </Container>
           </Container>
         </Container>
         <Divider variant="middle" sx={{ height: 20 }} />
@@ -59,7 +44,7 @@ export default function MyAccount() {
 
         <Divider variant="middle" sx={{ height: 20 }} />
 
-        <Container sx={{ pt: 10 }}>
+        {/* <Container sx={{ pt: 10 }}>
           <Typography component="h1" variant="h3">
             My Ratings
           </Typography>
@@ -144,7 +129,7 @@ export default function MyAccount() {
               />
             </Card>
           </Container>
-        </Container>
+        </Container> */}
       </Container>
     </>
   );
