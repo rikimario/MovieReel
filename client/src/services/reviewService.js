@@ -14,10 +14,10 @@ export const getAll = async () => {
   return result;
 };
 
-export const getAllById = async (reviewId) => {
+export const getAllById = async (ownerId) => {
   const query = new URLSearchParams({
-    where: `reviewId="${reviewId}"`,
-    load: `owner=_ownerId:users`,
+    where: `_ownerId="${ownerId}"`,
+    // load: `owner=_ownerId:users`,
   });
 
   const result = await request.get(`${baseUrl}?${query}`);
