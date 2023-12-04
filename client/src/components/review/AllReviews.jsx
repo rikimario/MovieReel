@@ -11,12 +11,6 @@ export default function AllReviews({ _id, title, review }) {
         width: "100%",
       }}
     >
-      <CardMedia
-        sx={{ width: "25%", height: "100%" }}
-        component="img"
-        alt="green iguana"
-        image="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
-      />
       <Box sx={{ textAlign: "left" }}>
         <Button
           variant="text"
