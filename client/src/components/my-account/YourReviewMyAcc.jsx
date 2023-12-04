@@ -1,21 +1,29 @@
 import { Container, Typography } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
+import AuthContext from "../../context/authContext";
 
 import * as reviewService from "../../services/reviewService";
 
 import YourReviews from "../review/YourReviews";
-import { useEffect, useState } from "react";
 
 export default function YourReviewsMyAcc() {
   const [reviews, setReviews] = useState([]);
+  const { userId } = useContext(AuthContext);
 
   useEffect(() => {
+    console.log(userId);
     reviewService
       .getAll()
-      .then((result) => setReviews(result))
+      .then((result) => {
+        const userReviews = result.filter(
+          (review) => review._ownerId === userId
+        );
+        setReviews(userReviews);
+      })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [userId]);
 
   return (
     <Container sx={{ pt: 10 }}>
@@ -43,7 +51,6 @@ export default function YourReviewsMyAcc() {
             {reviews.map((review) => (
               <YourReviews key={review._id} {...review} />
             ))}
-
             {reviews.length === 0 && <h3>No Reviews Yet</h3>}
           </Container>
         </Container>
