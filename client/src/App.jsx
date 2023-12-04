@@ -3,8 +3,7 @@ import { useState } from "react";
 
 import * as authServices from "./services/authService.js";
 import Path from "./paths/paths.js";
-import AuthContext from "./context/authContext.js";
-import { MovieProvider } from "./context/movieContext.jsx";
+import AuthContext from "./context/authContext.jsx";
 
 import NavBar from "./components/NavBar.jsx";
 import Heading from "./components/Home.jsx";
@@ -60,6 +59,7 @@ function App() {
     logoutHandler,
     username: auth.username || auth.email,
     email: auth.email,
+    userId: auth._id,
     isAuth: !!auth.accessToken,
   };
 
