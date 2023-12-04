@@ -11,7 +11,6 @@ export default function YourReviewsMyAcc() {
   const { userId } = useContext(AuthContext);
 
   useEffect(() => {
-    console.log(userId);
     reviewService
       .getAll()
       .then((result) => {
