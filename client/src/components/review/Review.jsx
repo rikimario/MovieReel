@@ -8,7 +8,7 @@ export default function Review() {
       maxWidth="lg"
       sx={{
         bgcolor: "whitesmoke",
-        height: "100%",
+        height: "100vh",
         textAlign: "center",
         pt: 10,
       }}
