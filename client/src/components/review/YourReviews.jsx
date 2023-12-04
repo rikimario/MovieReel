@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardMedia, Typography } from "@mui/material";
+import { Box, Button, Card, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Path from "../../paths/paths";
 
