@@ -1,31 +1,54 @@
-import { Card, CardMedia, Container, Typography } from "@mui/material";
+import { Box, Button, Card, Container, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-export default function ListCard({ title }) {
+import * as reviewService from "../../services/reviewService";
+
+export default function ListCard() {
+  const [review, setReview] = useState([]);
+  const { id: reviewId } = useParams();
+
+  useEffect(() => {
+    reviewService.getAll().then((result) => {
+      const selectedReview = result.find((review) => review._id === reviewId);
+
+      if (selectedReview) {
+        setReview(selectedReview);
+      }
+    });
+  }, [reviewId]);
+
   return (
     <Container sx={{ pt: 10 }}>
       <Typography component="h1" variant="h3">
-        List title
+        {review.title}
       </Typography>
-      <Container sx={{ display: "flex", flexDirection: "row", py: 5 }}>
+      <Container
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          py: 5,
+        }}
+      >
         <Card
           sx={{
             display: "flex",
             flexDirection: "row",
             bgcolor: "rgba(17,17,17,0.8)",
-            width: "90%",
+            width: "100%",
+            minHeight: "250px",
+            p: 1.5,
           }}
         >
-          <CardMedia
-            sx={{ width: "25%", height: "100%" }}
-            component="img"
-            alt="green iguana"
-            image="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
-          />
-          <Typography variant="h5" sx={{ color: "white" }}>
-            Name:
-          </Typography>
+          <Box sx={{ color: "white" }}>
+            <Typography variant="h5">{review.review}</Typography>
+          </Box>
         </Card>
       </Container>
+      <Box sx={{ display: "flex", gap: 2, ml: 3 }}>
+        <Button variant="contained">Edit</Button>
+        <Button variant="contained">Delete</Button>
+      </Box>
     </Container>
   );
 }
