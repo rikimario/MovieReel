@@ -14,6 +14,12 @@ export const getAll = async () => {
   return result;
 };
 
+// export default getOne = async (reviewId) => {
+//   const result = await request.get(`${baseUrl}/${reviewId}`);
+
+//   return result;
+// };
+
 export const getAllById = async (ownerId) => {
   const query = new URLSearchParams({
     where: `_ownerId="${ownerId}"`,
