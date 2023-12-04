@@ -1,12 +1,14 @@
 import { Box, Button, Card, Container, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import AuthContext from "../../context/authContext";
 import * as reviewService from "../../services/reviewService";
 
 export default function ListCard() {
   const [review, setReview] = useState([]);
   const { id: reviewId } = useParams();
+  const { userId } = useContext(AuthContext);
 
   useEffect(() => {
     reviewService.getAll().then((result) => {
@@ -45,10 +47,13 @@ export default function ListCard() {
           </Box>
         </Card>
       </Container>
-      <Box sx={{ display: "flex", gap: 2, ml: 3 }}>
-        <Button variant="contained">Edit</Button>
-        <Button variant="contained">Delete</Button>
-      </Box>
+
+      {userId === review._ownerId && (
+        <Box sx={{ display: "flex", gap: 2, ml: 3 }}>
+          <Button variant="contained">Edit</Button>
+          <Button variant="contained">Delete</Button>
+        </Box>
+      )}
     </Container>
   );
 }
