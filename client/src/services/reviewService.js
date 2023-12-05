@@ -14,6 +14,12 @@ export const getAll = async () => {
   return result;
 };
 
+export const edit = async (reviewId, reviewData) => {
+  const result = await request.put(`${baseUrl}/${reviewId}`, reviewData);
+
+  return result;
+};
+
 // export default getOne = async (reviewId) => {
 //   const result = await request.get(`${baseUrl}/${reviewId}`);
 
