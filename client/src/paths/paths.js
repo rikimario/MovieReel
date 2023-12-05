@@ -7,6 +7,7 @@ const Path = {
   CreateReview: "/create-review",
   Review: "/review",
   Reviews: "/all-reviews",
+  Edit: "/review/:reviewId/edit",
   About: "/about",
   MovieDetails: "/movie-details",
   PopularMoviesPage: "/popular-movies-page",
