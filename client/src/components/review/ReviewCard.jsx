@@ -1,13 +1,14 @@
 import { Box, Button, Card, Container, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-import AuthContext from "../../context/authContext";
-import * as reviewService from "../../services/reviewService";
-import Path from "../../paths/paths";
 import { pathToUrl } from "../../utils/pathUtil";
+import * as reviewService from "../../services/reviewService";
+import AuthContext from "../../context/authContext";
+import Path from "../../paths/paths";
 
 export default function ListCard() {
+  const navigate = useNavigate();
   const [review, setReview] = useState([]);
   const { id: reviewId } = useParams();
   const { userId } = useContext(AuthContext);
@@ -21,6 +22,18 @@ export default function ListCard() {
       }
     });
   }, [reviewId]);
+
+  const deleteOnClick = async () => {
+    const hasConfirmed = confirm(
+      `Are you sure you want to delete ${review.title} review`
+    );
+
+    if (hasConfirmed) {
+      await reviewService.remove(reviewId);
+
+      navigate(Path.Reviews);
+    }
+  };
 
   return (
     <Container sx={{ pt: 10 }}>
@@ -59,7 +72,9 @@ export default function ListCard() {
           >
             Edit
           </Button>
-          <Button variant="contained">Delete</Button>
+          <Button variant="contained" onClick={deleteOnClick}>
+            Delete
+          </Button>
         </Box>
       )}
     </Container>
