@@ -37,7 +37,6 @@ The owner of the review can delete their reviews.
 * [![Vite](https://img.shields.io/badge/Vite-005571?logo=vite&logoColor=white)](https://vitejs.dev/)
 * [![Material-UI](https://img.shields.io/badge/MaterialUI-0081CB?logo=material-ui&logoColor=white)](https://mui.com/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ### Instalation
@@ -68,7 +67,6 @@ The owner of the review can delete their reviews.
 
 ### Open http://localhost:5173/ to view it in the browser
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
