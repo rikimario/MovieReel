@@ -20,6 +20,7 @@ import ComingSoonPage from "./components/movies-coming-soon/ComingSoonPage.jsx";
 import CreateReview from "./components/review/CreateReview.jsx";
 import Review from "./components/review/Review.jsx";
 import Reviews from "./components/review/Reviews.jsx";
+import Edit from "./components/edit/Edit.jsx";
 
 function App() {
   const navigate = useNavigate();
@@ -74,8 +75,9 @@ function App() {
         <Route path={Path.Logout} element={<Logout />} />
         <Route path={Path.MyAccount} element={<MyAccount />} />
         <Route path={Path.CreateReview} element={<CreateReview />} />
-        <Route path={`${Path.Review}/:id`} element={<Review />} />
         <Route path={Path.Reviews} element={<Reviews />} />
+        <Route path={`${Path.Review}/:id`} element={<Review />} />
+        <Route path={Path.Edit} element={<Edit />} />
         <Route path={`${Path.MovieDetails}/:id`} element={<MovieDetails />} />
         <Route path={Path.PopularMoviesPage} element={<PopularMoviesPage />} />
         <Route path={Path.TopRatedPage} element={<TopRatedPage />} />
