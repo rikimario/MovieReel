@@ -1,9 +1,11 @@
 import { Box, Button, Card, Container, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import AuthContext from "../../context/authContext";
 import * as reviewService from "../../services/reviewService";
+import Path from "../../paths/paths";
+import { pathToUrl } from "../../utils/pathUtil";
 
 export default function ListCard() {
   const [review, setReview] = useState([]);
@@ -50,7 +52,13 @@ export default function ListCard() {
 
       {userId === review._ownerId && (
         <Box sx={{ display: "flex", gap: 2, ml: 3 }}>
-          <Button variant="contained">Edit</Button>
+          <Button
+            component={Link}
+            to={pathToUrl(Path.Edit, { reviewId })}
+            variant="contained"
+          >
+            Edit
+          </Button>
           <Button variant="contained">Delete</Button>
         </Box>
       )}
