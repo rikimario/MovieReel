@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import * as reviewService from "../../services/reviewService";
@@ -28,6 +28,11 @@ export default function Reviews() {
         pt: 10,
       }}
     >
+      <Container>
+        <Typography variant="h2" sx={{ mb: 3 }}>
+          All Reviews
+        </Typography>
+      </Container>
       <Container sx={{ pt: 6, border: "1px solid grey" }}>
         <Container
           maxWidth="false"
