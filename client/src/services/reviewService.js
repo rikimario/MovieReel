@@ -20,11 +20,8 @@ export const edit = async (reviewId, reviewData) => {
   return result;
 };
 
-// export default getOne = async (reviewId) => {
-//   const result = await request.get(`${baseUrl}/${reviewId}`);
-
-//   return result;
-// };
+export const remove = async (reviewId) =>
+  request.remove(`${baseUrl}/${reviewId}`);
 
 export const getAllById = async (ownerId) => {
   const query = new URLSearchParams({
