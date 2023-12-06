@@ -62,7 +62,7 @@ The owner of the review can delete their reviews.
    ```
 2. run the server
    ```sh
-   node.js server.js
+   node server.js
    ```
 
 ### Open http://localhost:5173/ to view it in the browser
