@@ -1,9 +1,7 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
-import * as authServices from "./services/authService.js";
 import Path from "./paths/paths.js";
-import AuthContext from "./context/authContext.jsx";
+import { AuthProvider } from "./context/authContext.jsx";
 
 import NavBar from "./components/NavBar.jsx";
 import Heading from "./components/Home.jsx";
@@ -23,49 +21,9 @@ import Reviews from "./components/review/Reviews.jsx";
 import Edit from "./components/edit/Edit.jsx";
 
 function App() {
-  const navigate = useNavigate();
-  const [auth, setAuth] = useState(() => {
-    localStorage.removeItem("accessToken");
-
-    return {};
-  });
-
-  const registerSubmitHandler = async (values) => {
-    const result = await authServices.register(values.email, values.password);
-
-    localStorage.setItem("accessToken", result.accessToken);
-
-    setAuth(result);
-    navigate("/");
-  };
-
-  const loginSubmitHandler = async (values) => {
-    const result = await authServices.login(values.email, values.password);
-
-    localStorage.setItem("accessToken", result.accessToken);
-
-    setAuth(result);
-    navigate("/");
-  };
-
-  const logoutHandler = () => {
-    setAuth({});
-    localStorage.removeItem("accessToken");
-    navigate("/");
-  };
-
-  const values = {
-    registerSubmitHandler,
-    loginSubmitHandler,
-    logoutHandler,
-    username: auth.username || auth.email,
-    email: auth.email,
-    userId: auth._id,
-    isAuth: !!auth.accessToken,
-  };
 
   return (
-    <AuthContext.Provider value={values}>
+    <AuthProvider>
       <NavBar />
       <Routes>
         <Route path={Path.Home} element={<Heading />} />
@@ -85,7 +43,7 @@ function App() {
       </Routes>
 
       <Footer />
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 
