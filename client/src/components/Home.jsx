@@ -3,7 +3,7 @@ import PopularMovies from "./movies-popular/PopularMovies";
 import ComingSoon from "./movies-coming-soon/ComingSoon";
 import TopRatedMovies from "./movies-top-rated/TopRatedMovies";
 
-export default function Heading() {
+export default function Home() {
   return (
     <>
       <CssBaseline />
