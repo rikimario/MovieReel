@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
-import Path from "./paths/paths.js";
 import { AuthProvider } from "./context/authContext.jsx";
+import Path from "./paths/paths.js";
 
 import Home from "./components/Home.jsx";
 import NavBar from "./components/NavBar.jsx";
@@ -24,35 +24,30 @@ import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 function App() {
   return (
-    <ErrorBoundary>
-      <AuthProvider>
-        <NavBar />
-        <Routes>
-          <Route path={Path.Home} element={<Home />} />
-          <Route path={Path.About} element={<About />} />
-          <Route path={Path.Login} element={<Login />} />
-          <Route path={Path.Register} element={<Register />} />
-          <Route path={Path.Reviews} element={<Reviews />} />
-          <Route path={`${Path.MovieDetails}/:id`} element={<MovieDetails />} />
-          <Route
-            path={Path.PopularMoviesPage}
-            element={<PopularMoviesPage />}
-          />
-          <Route path={Path.TopRatedPage} element={<TopRatedPage />} />
-          <Route path={Path.ComingSoonPage} element={<ComingSoonPage />} />
+    <AuthProvider>
+      <NavBar />
+      <Routes>
+        <Route path={Path.Home} element={<Home />} />
+        <Route path={Path.About} element={<About />} />
+        <Route path={Path.Login} element={<Login />} />
+        <Route path={Path.Register} element={<Register />} />
+        <Route path={Path.Reviews} element={<Reviews />} />
+        <Route path={`${Path.MovieDetails}/:id`} element={<MovieDetails />} />
+        <Route path={Path.PopularMoviesPage} element={<PopularMoviesPage />} />
+        <Route path={Path.TopRatedPage} element={<TopRatedPage />} />
+        <Route path={Path.ComingSoonPage} element={<ComingSoonPage />} />
+        <Route path={`${Path.Review}/:id`} element={<Review />} />
 
-          <Route element={<AuthGuard />}>
-            <Route path={Path.MyAccount} element={<MyAccount />} />
-            <Route path={Path.CreateReview} element={<CreateReview />} />
-            <Route path={`${Path.Review}/:id`} element={<Review />} />
-            <Route path={Path.Edit} element={<Edit />} />
-            <Route path={Path.Logout} element={<Logout />} />
-          </Route>
-        </Routes>
+        <Route element={<AuthGuard />}>
+          <Route path={Path.MyAccount} element={<MyAccount />} />
+          <Route path={Path.CreateReview} element={<CreateReview />} />
+          <Route path={Path.Edit} element={<Edit />} />
+          <Route path={Path.Logout} element={<Logout />} />
+        </Route>
+      </Routes>
 
-        <Footer />
-      </AuthProvider>
-    </ErrorBoundary>
+      <Footer />
+    </AuthProvider>
   );
 }
 
