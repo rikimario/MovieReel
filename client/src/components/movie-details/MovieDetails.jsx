@@ -19,8 +19,20 @@ const apiUrl = "https://api.themoviedb.org/3/movie";
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState({});
-  const { isAuth } = useContext(AuthContext);
+  const { isAuth, userId } = useContext(AuthContext);
   const { id: movieId } = useParams();
+  // const [rating, setRating] = useState(() => {
+  //   const storedRatings =
+  //     JSON.parse(localStorage.getItem("movieRatings")) || {};
+  //   return storedRatings[movieId] || 0;
+  // });
+
+  const storedRatings = JSON.parse(localStorage.getItem("movieRatings")) || {};
+  const userRatings = storedRatings[userId] || {};
+
+  const [rating, setRating] = useState(() => {
+    return userRatings[movieId] || 0;
+  });
 
   const posterUrl = "https://image.tmdb.org/t/p/w500";
   const poster_path = movie.poster_path;
@@ -36,6 +48,21 @@ export default function MovieDetails() {
       })
       .then(setMovie);
   }, [movieId]);
+
+  const onChangeRating = (e, newValue) => {
+    // Update user-specific ratings in local storage
+    storedRatings[userId] = { ...userRatings, [movieId]: newValue };
+    localStorage.setItem("movieRatings", JSON.stringify(storedRatings));
+    setRating(newValue);
+  };
+
+  // const onChangeRating = (e, newValue) => {
+  //   const storedRatings =
+  //     JSON.parse(localStorage.getItem("movieRatings")) || {};
+  //   storedRatings[movieId] = newValue;
+  //   localStorage.setItem("movieRatings", JSON.stringify(storedRatings));
+  //   setRating(newValue);
+  // };
 
   return (
     <Container
@@ -139,18 +166,35 @@ export default function MovieDetails() {
                 <Typography variant="h5" color="white">
                   Your Ratings
                 </Typography>
-                <Rating
-                  name="customized-10"
-                  size="large"
-                  defaultValue={1}
-                  max={10}
-                  sx={{
-                    bgcolor: "white",
-                    p: 1,
-                    m: 1,
-                    borderRadius: "10px",
-                  }}
-                />
+                {rating === 0 ? (
+                  <Rating
+                    name="customized-10"
+                    size="large"
+                    value={rating}
+                    max={10}
+                    onChange={onChangeRating}
+                    sx={{
+                      bgcolor: "white",
+                      p: 1,
+                      m: 1,
+                      borderRadius: "10px",
+                    }}
+                  />
+                ) : (
+                  <Rating
+                    name="customized-10"
+                    size="large"
+                    value={rating}
+                    max={10}
+                    disabled
+                    sx={{
+                      bgcolor: "white",
+                      p: 1,
+                      m: 1,
+                      borderRadius: "10px",
+                    }}
+                  />
+                )}
               </Container>
             </Container>
           )}
