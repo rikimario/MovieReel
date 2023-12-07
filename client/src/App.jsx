@@ -20,7 +20,6 @@ import Review from "./components/review/Review.jsx";
 import Reviews from "./components/review/Reviews.jsx";
 import Edit from "./components/edit/Edit.jsx";
 import AuthGuard from "./components/guards/AuthGuard.jsx";
-import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 function App() {
   return (
