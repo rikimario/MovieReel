@@ -16,10 +16,16 @@ import AuthContext from "../context/authContext";
 export default function Login() {
   const { loginSubmitHandler } = useContext(AuthContext);
 
-  const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
-    email: "",
-    password: "",
-  });
+  const { values, onChange, onSubmit, isSubmitted, error } = useForm(
+    loginSubmitHandler,
+    {
+      email: "",
+      password: "",
+    }
+  );
+
+  const areFieldsEmpty =
+    isSubmitted && (values.email === "" || values.password === "");
 
   return (
     <Container
@@ -43,10 +49,10 @@ export default function Login() {
           Welcome back!
         </Typography>
         <Box component="form" onSubmit={onSubmit} sx={{ mt: 6.3 }}>
+          {areFieldsEmpty && <Typography color="error">{error}</Typography>}
           <TextField
             type="email"
             margin="normal"
-            required
             fullWidth
             id="email"
             label="Email Address"
@@ -58,7 +64,6 @@ export default function Login() {
           />
           <TextField
             margin="normal"
-            required
             fullWidth
             name="password"
             label="Password"
