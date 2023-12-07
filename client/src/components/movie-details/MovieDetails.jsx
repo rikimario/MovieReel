@@ -10,16 +10,16 @@ import {
   Rating,
 } from "@mui/material";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-import ListButton from "./ListButton";
+import AuthContext from "../../context/authContext";
 
 const apiKey = "589f3d4f48689702b074a222aea6db87";
 const apiUrl = "https://api.themoviedb.org/3/movie";
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState({});
+  const { isAuth } = useContext(AuthContext);
   const { id: movieId } = useParams();
 
   const posterUrl = "https://image.tmdb.org/t/p/w500";
@@ -127,30 +127,33 @@ export default function MovieDetails() {
             primary={`${movie.title} Synopsis`}
             secondary={`${movie.overview}`}
           />
-
-          <Container
-            sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
-          >
-            <Container sx={{ mt: 5 }}>
-              <Typography variant="h5" color="white">
-                Your Ratings
-              </Typography>
-              <Rating
-                name="customized-10"
-                size="large"
-                defaultValue={1}
-                max={10}
-                sx={{
-                  bgcolor: "white",
-                  p: 1,
-                  m: 1,
-                  borderRadius: "10px",
-                }}
-              />
-
-              {/* <ListButton key={movie.id} /> */}
+          {isAuth && (
+            <Container
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Container sx={{ mt: 5 }}>
+                <Typography variant="h5" color="white">
+                  Your Ratings
+                </Typography>
+                <Rating
+                  name="customized-10"
+                  size="large"
+                  defaultValue={1}
+                  max={10}
+                  sx={{
+                    bgcolor: "white",
+                    p: 1,
+                    m: 1,
+                    borderRadius: "10px",
+                  }}
+                />
+              </Container>
             </Container>
-          </Container>
+          )}
         </CardContent>
       </Card>
     </Container>
