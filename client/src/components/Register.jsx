@@ -17,12 +17,22 @@ import useForm from "../hooks/useForm";
 
 export default function Register() {
   const { registerSubmitHandler } = useContext(AuthContext);
-  const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-  });
+  const { values, onChange, onSubmit, error, isSubmitted } = useForm(
+    registerSubmitHandler,
+    {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    }
+  );
+
+  const areFieldsEmpty =
+    isSubmitted &&
+    (values.email === "" ||
+      values.password === "" ||
+      values.firstName === "" ||
+      values.lastName === "");
 
   return (
     <Container
@@ -51,7 +61,6 @@ export default function Register() {
               <TextField
                 autoComplete="given-name"
                 name="firstName"
-                required
                 fullWidth
                 id="firstName"
                 label="First Name"
@@ -62,7 +71,6 @@ export default function Register() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                required
                 fullWidth
                 id="lastName"
                 label="Last Name"
@@ -74,7 +82,6 @@ export default function Register() {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                required
                 fullWidth
                 id="email"
                 label="Email Address"
@@ -86,7 +93,6 @@ export default function Register() {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                required
                 fullWidth
                 name="password"
                 label="Password"
@@ -98,10 +104,7 @@ export default function Register() {
               />
             </Grid>
             <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
+              {areFieldsEmpty && <Typography color="error">{error}</Typography>}
             </Grid>
           </Grid>
           <Button
