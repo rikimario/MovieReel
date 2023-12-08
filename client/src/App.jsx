@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/authContext.jsx";
 import Path from "./paths/paths.js";
 
-import Home from "./components/Home.jsx";
+import Home from "./components/home/Home.jsx";
 import NavBar from "./components/NavBar.jsx";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
