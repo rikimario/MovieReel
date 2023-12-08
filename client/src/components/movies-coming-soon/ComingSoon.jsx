@@ -25,14 +25,7 @@ export default function ComingSoon() {
 
   return (
     <>
-      <Typography
-        color="white"
-        variant="h2"
-        sx={{
-          textAlign: "center",
-          mb: 4,
-        }}
-      >
+      <Typography className="coming-soon-h2" color="white" variant="h2">
         Coming Soon
       </Typography>
       <Container
@@ -46,6 +39,11 @@ export default function ComingSoon() {
         {movies.map((movie) => (
           <ComingSoonCard key={movie.id} {...movie} posterUrl={posterUrl} />
         ))}
+        {movies.length === 0 && (
+          <Typography className="no-movies" variant="h4" color="white">
+            No Movies Yet
+          </Typography>
+        )}
       </Container>
       <Button component={Link} to={Path.ComingSoonPage} sx={{ color: "white" }}>
         View More

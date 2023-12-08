@@ -25,23 +25,8 @@ export default function ComingSoonPage() {
   }, []);
 
   return (
-    <Container
-      component="main"
-      maxWidth="false"
-      sx={{
-        bgcolor: "rgba(17,17,17,0.8)",
-        height: "100%",
-        textAlign: "center",
-        pt: 10,
-      }}
-    >
-      <Container
-        maxWidth="false"
-        sx={{
-          width: "100%",
-          pt: 10,
-        }}
-      >
+    <Container className="view-more-main" component="main" maxWidth="false">
+      <Container maxWidth="false">
         <Typography component="h1" variant="h3" color="white">
           Upcoming Movies
         </Typography>
@@ -49,25 +34,20 @@ export default function ComingSoonPage() {
           maxWidth="false"
           sx={{
             display: "flex",
-            flexDirection: "row",
+            justifyContent: "center",
             flexWrap: "wrap",
-            py: 5,
-            bgcolor: "none",
+            pt: 5,
           }}
         >
           {movies.map((movie) => (
             <Link to={`${Path.MovieDetails}/${movie.id}`} key={movie.id}>
               <Card
+                className="card"
                 key={movie.id}
                 posterUrl={posterUrl}
                 onMouseEnter={() => setHoveredMovie(movie.id)}
                 onMouseLeave={() => setHoveredMovie()}
                 sx={{
-                  position: "relative",
-                  width: "fit-content",
-                  mx: 1,
-                  my: 3,
-                  cursor: "pointer",
                   transition: "transform 0.3s",
                   "&:hover": {
                     transform: "scale(1.05)",
@@ -76,25 +56,15 @@ export default function ComingSoonPage() {
               >
                 <CardMedia
                   component="img"
+                  height="350"
                   alt={movie.title}
                   image={`${posterUrl}${movie.poster_path}`}
                 />
                 {hoveredMovie === movie.id && (
                   <Typography
+                    className="movie-title"
                     variant="h5"
                     component="div"
-                    sx={{
-                      position: "absolute",
-                      bottom: 0,
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      textAlign: "center",
-                      width: "100%",
-                      color: "white",
-                      text: "bold",
-                      opacity: 1,
-                      transition: "opacity 0.3s",
-                    }}
                   >
                     {movie.title}
                   </Typography>
@@ -102,6 +72,11 @@ export default function ComingSoonPage() {
               </Card>
             </Link>
           ))}
+          {movies.length === 0 && (
+            <Typography className="no-movies" variant="h4" color="white">
+              No Movies Yet
+            </Typography>
+          )}
         </Container>
       </Container>
     </Container>
