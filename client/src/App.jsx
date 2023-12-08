@@ -5,7 +5,6 @@ import Path from "./paths/paths.js";
 
 import Home from "./components/Home.jsx";
 import NavBar from "./components/NavBar.jsx";
-import About from "./components/About.jsx";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import Footer from "./components/Footer.jsx";
@@ -27,7 +26,6 @@ function App() {
       <NavBar />
       <Routes>
         <Route path={Path.Home} element={<Home />} />
-        <Route path={Path.About} element={<About />} />
         <Route path={Path.Login} element={<Login />} />
         <Route path={Path.Register} element={<Register />} />
         <Route path={Path.Reviews} element={<Reviews />} />

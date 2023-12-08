@@ -18,9 +18,7 @@ import Path from "../paths/paths";
 
 const settings = [
   { label: "My Account", path: "/my-account" },
-  { label: "Watch List", path: "/watch-list" },
   { label: "Create Review", path: "/create-review" },
-  { label: "Your Ratings", path: "/your-ratings" },
   { label: "Logout", path: "/logout" },
 ];
 
@@ -67,15 +65,6 @@ export default function NavBar() {
               sx={{ my: 1, mx: 1 }}
             >
               Home
-            </Button>
-            <Button
-              component={Link}
-              to={Path.About}
-              variant="button"
-              color="text.primary"
-              sx={{ my: 1, mx: 1 }}
-            >
-              About
             </Button>
             <Button
               component={Link}
