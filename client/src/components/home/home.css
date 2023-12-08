@@ -1,0 +1,14 @@
+.main-box {
+  margin: 15rem;
+}
+
+.main-container {
+  display: flex;
+  text-align: center;
+}
+
+.p {
+  color: lightgray;
+  padding: 2rem;
+  line-height: 10px;
+}
