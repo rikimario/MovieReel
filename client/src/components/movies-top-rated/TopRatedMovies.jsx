@@ -41,6 +41,11 @@ export default function TopRatedMovies() {
         {movies.map((movie) => (
           <TopRatedCard key={movie.id} {...movie} posterUrl={posterUrl} />
         ))}
+        {movies.length === 0 && (
+          <Typography className="no-movies" variant="h4" color="white">
+            No Movies Yet
+          </Typography>
+        )}
       </Container>
       <Button
         className="view-more"
