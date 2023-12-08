@@ -1,4 +1,4 @@
-import { Typography, Container, Button } from "@mui/material/";
+import { Typography, Container, Button, Box } from "@mui/material/";
 import { useEffect, useState } from "react";
 
 import TopRatedCard from "./TopRatedCard";
@@ -47,14 +47,11 @@ export default function TopRatedMovies() {
           </Typography>
         )}
       </Container>
-      <Button
-        className="view-more"
-        component={Link}
-        to={Path.TopRatedPage}
-        sx={{ color: "white" }}
-      >
-        View More
-      </Button>
+      <Box className="view-more-btn">
+        <Button component={Link} to={Path.TopRatedPage} sx={{ color: "white" }}>
+          View More
+        </Button>
+      </Box>
     </>
   );
 }

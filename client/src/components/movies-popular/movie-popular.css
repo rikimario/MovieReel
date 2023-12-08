@@ -38,3 +38,9 @@
 .no-movies {
   padding: 5rem;
 }
+
+.view-more-btn {
+  display: flex;
+  justify-content: end;
+  margin-right: 3.3rem;
+}

@@ -1,4 +1,4 @@
-import { Button, Typography, Container } from "@mui/material/";
+import { Button, Typography, Container, Box } from "@mui/material/";
 import { useEffect, useState } from "react";
 import ComingSoonCard from "./ComingSoonCard";
 import { Link } from "react-router-dom";
@@ -45,9 +45,15 @@ export default function ComingSoon() {
           </Typography>
         )}
       </Container>
-      <Button component={Link} to={Path.ComingSoonPage} sx={{ color: "white" }}>
-        View More
-      </Button>
+      <Box className="view-more-btn">
+        <Button
+          component={Link}
+          to={Path.ComingSoonPage}
+          sx={{ color: "white" }}
+        >
+          View More
+        </Button>
+      </Box>
     </>
   );
 }
