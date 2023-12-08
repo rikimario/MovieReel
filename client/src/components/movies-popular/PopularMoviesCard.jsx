@@ -18,16 +18,10 @@ export default function PopularMoviesCard({
   const poster = `${posterUrl}${poster_path}`;
 
   return (
-    <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
-      <CardMedia
-        component="img"
-        alt={title}
-        height="500"
-        width="fit-content"
-        image={poster}
-      />
+    <Card className="popular-card">
+      <CardMedia component="img" alt={title} image={poster} />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography className="popular-card-title" variant="h5" component="div">
           {title}
         </Typography>
       </CardContent>

@@ -26,17 +26,11 @@ export default function PopularMovies() {
 
   return (
     <>
-      <Typography
-        color="white"
-        variant="h2"
-        sx={{
-          textAlign: "center",
-          mb: 4,
-        }}
-      >
+      <Typography className="popular-movies-h2" variant="h2">
         Popular Movies
       </Typography>
       <Container
+        className="popular-container"
         sx={{
           display: "flex",
           flexDirection: "row",
@@ -47,6 +41,11 @@ export default function PopularMovies() {
         {movies.map((movie) => (
           <PopularMoviesCard key={movie.id} {...movie} posterUrl={posterUrl} />
         ))}
+        {movies.length === 0 && (
+          <Typography className="no-movies" variant="h4" color="white">
+            No Movies Yet
+          </Typography>
+        )}
       </Container>
       <Button
         component={Link}

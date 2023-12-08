@@ -1,0 +1,40 @@
+.popular-movies-h2 {
+  color: white;
+  text-align: center;
+}
+
+.popular-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 300px;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+.popular-card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  max-height: 1em;
+}
+
+.view-more-main {
+  height: 100%;
+  text-align: center;
+  padding-top: 10rem;
+}
+
+.card {
+  position: relative;
+  width: fit-content;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.no-movies {
+  padding: 5rem;
+}
