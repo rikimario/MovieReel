@@ -13,21 +13,15 @@ export default function TopRatedCard({ id, title, posterUrl, poster_path }) {
   const poster = `${posterUrl}${poster_path}`;
 
   return (
-    <Card sx={{ minWidth: 300, mt: 2, mr: 2 }}>
-      <CardMedia
-        component="img"
-        alt={title}
-        height="500"
-        width="fit-content"
-        image={poster}
-      />
+    <Card className="card-poster">
+      <CardMedia component="img" alt={title} image={poster} />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography className="card-title" variant="h5" component="div">
           {title}
         </Typography>
       </CardContent>
 
-      <CardActions>
+      <CardActions className="learn-more">
         <Button
           variant="contained"
           component={Link}

@@ -26,17 +26,11 @@ export default function TopRatedMovies() {
 
   return (
     <>
-      <Typography
-        color="white"
-        variant="h2"
-        sx={{
-          textAlign: "center",
-          mb: 4,
-        }}
-      >
+      <Typography className="top-rated-h2" variant="h2">
         Top Rated
       </Typography>
       <Container
+        className="top-rated-container"
         sx={{
           display: "flex",
           flexDirection: "row",
@@ -48,7 +42,12 @@ export default function TopRatedMovies() {
           <TopRatedCard key={movie.id} {...movie} posterUrl={posterUrl} />
         ))}
       </Container>
-      <Button component={Link} to={Path.TopRatedPage} sx={{ color: "white" }}>
+      <Button
+        className="view-more"
+        component={Link}
+        to={Path.TopRatedPage}
+        sx={{ color: "white" }}
+      >
         View More
       </Button>
     </>
