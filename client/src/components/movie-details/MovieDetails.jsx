@@ -21,11 +21,6 @@ export default function MovieDetails() {
   const [movie, setMovie] = useState({});
   const { isAuth, userId } = useContext(AuthContext);
   const { id: movieId } = useParams();
-  // const [rating, setRating] = useState(() => {
-  //   const storedRatings =
-  //     JSON.parse(localStorage.getItem("movieRatings")) || {};
-  //   return storedRatings[movieId] || 0;
-  // });
 
   const storedRatings = JSON.parse(localStorage.getItem("movieRatings")) || {};
   const userRatings = storedRatings[userId] || {};
@@ -50,19 +45,10 @@ export default function MovieDetails() {
   }, [movieId]);
 
   const onChangeRating = (e, newValue) => {
-    // Update user-specific ratings in local storage
     storedRatings[userId] = { ...userRatings, [movieId]: newValue };
     localStorage.setItem("movieRatings", JSON.stringify(storedRatings));
     setRating(newValue);
   };
-
-  // const onChangeRating = (e, newValue) => {
-  //   const storedRatings =
-  //     JSON.parse(localStorage.getItem("movieRatings")) || {};
-  //   storedRatings[movieId] = newValue;
-  //   localStorage.setItem("movieRatings", JSON.stringify(storedRatings));
-  //   setRating(newValue);
-  // };
 
   return (
     <Container
@@ -168,31 +154,21 @@ export default function MovieDetails() {
                 </Typography>
                 {rating === 0 ? (
                   <Rating
+                    className="rating"
                     name="customized-10"
                     size="large"
                     value={rating}
                     max={10}
                     onChange={onChangeRating}
-                    sx={{
-                      bgcolor: "white",
-                      p: 1,
-                      m: 1,
-                      borderRadius: "10px",
-                    }}
                   />
                 ) : (
                   <Rating
+                    className="rating"
                     name="customized-10"
                     size="large"
                     value={rating}
                     max={10}
                     disabled
-                    sx={{
-                      bgcolor: "white",
-                      p: 1,
-                      m: 1,
-                      borderRadius: "10px",
-                    }}
                   />
                 )}
               </Container>
