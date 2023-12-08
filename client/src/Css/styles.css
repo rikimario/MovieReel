@@ -1,2 +1,4 @@
 @import "header.css";
 @import url(../components/movies-top-rated/movie-top-rated.css);
+@import url(../components/movies-popular/movie-popular.css);
+@import url(../components/movies-coming-soon/movie-coming-soon.css);
