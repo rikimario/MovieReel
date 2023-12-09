@@ -1,12 +1,23 @@
-@import url(../components/home/home.css);
+@import url(../components/movies-coming-soon/movie-coming-soon.css);
 @import url(../components/movies-top-rated/movie-top-rated.css);
 @import url(../components/movies-popular/movie-popular.css);
-@import url(../components/movies-coming-soon/movie-coming-soon.css);
 @import url(../components/movie-details/movie-details.css);
+@import url(../components/my-account/your-reviews.css);
+@import url(../components/my-account/my-account.css);
+@import url(../components/review/create-review.css);
+@import url(../components/review/your-reviews.css);
+@import url(../components/review/all-reviews.css);
+@import url(../components/review/review-card.css);
+@import url(../components/register/register.css);
+@import url(../components/review/reviews.css);
+@import url(../components/review/review.css);
+@import url(../components/login/login.css);
+@import url(../components/home/home.css);
+@import url(../components/edit/edit.css);
 
 body {
   /* background-image: url(https://clipart-library.com/images/rTnreyLAc.jpg); */
-  background-image: url(https://img.freepik.com/free-photo/movie-background-collage_23-2149876018.jpg?w=740&t=st=1702052754~exp=1702053354~hmac=1467b9c55dcbe0117fa8f7ef0849cfa21ec0fae6e8a598625b59cb99c9cd5ef1);
+  background-image: url(../../public/movie-background-collage.jpg);
   background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
