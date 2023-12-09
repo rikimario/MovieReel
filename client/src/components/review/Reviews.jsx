@@ -19,36 +19,24 @@ export default function Reviews() {
 
   return (
     <Container
+      className="main-container"
       component="main"
-      maxWidth="xl"
-      sx={{
-        bgcolor: "whitesmoke",
-        height: "100%",
-        textAlign: "center",
-        pt: 10,
-      }}
+      maxWidth="lg"
+      sx={{ p: 10 }}
     >
       <Container>
-        <Typography variant="h2" sx={{ mb: 3 }}>
+        <Typography className="all-reviews-title" variant="h2" sx={{ mb: 5 }}>
           All Reviews
         </Typography>
       </Container>
-      <Container sx={{ pt: 6, border: "1px solid grey" }}>
-        <Container
-          maxWidth="false"
-          sx={{
-            maxWidth: "70%",
-            ml: 0,
-            display: "flex",
-            flexDirection: "row",
-            py: 5,
-          }}
-        >
+      <Container className="review-container">
+        <Container sx={{ p: 5 }}>
           <Container
+            className="all-reviews-container"
             sx={{
               display: "flex",
               flexDirection: "column",
-              gap: 2,
+              gap: 5,
             }}
           >
             {reviews.map((review) => (

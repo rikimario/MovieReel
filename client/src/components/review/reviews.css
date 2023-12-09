@@ -1,0 +1,14 @@
+.main-container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.all-reviews-title {
+  color: white;
+}
+
+.review-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border: 1px solid gray;
+}
