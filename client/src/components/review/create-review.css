@@ -1,0 +1,11 @@
+.main-container-create {
+  background-color: white;
+  margin-top: 11rem;
+  margin-bottom: 11rem;
+}
+
+.box-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
