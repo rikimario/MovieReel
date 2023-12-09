@@ -13,8 +13,8 @@ import {
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 
-import AuthContext from "../context/authContext";
-import Path from "../paths/paths";
+import AuthContext from "../../context/authContext";
+import Path from "../../paths/paths";
 
 const settings = [
   { label: "My Account", path: Path.MyAccount },
@@ -41,27 +41,23 @@ export default function NavBar() {
       <AppBar
         className="nav-bar"
         position="static"
-        color="default"
+        color="transparent"
         elevation={0}
-        sx={{
-          borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
-        }}
       >
         <Toolbar sx={{ flexWrap: "wrap" }}>
-          <Typography
-            variant="h3"
-            component="div"
-            color="gray"
-            sx={{ flexGrow: 1, fontWeight: 600 }}
-          >
-            MovieReel
+          <Typography className="nav-logo" variant="h3" component="div">
+            <span>Movie</span>Reel
           </Typography>
-          <Stack direction="row" spacing={2}>
+          <Stack
+            className="nav-stack"
+            direction="row"
+            spacing={2}
+            sx={{ color: "white" }}
+          >
             <Button
               component={Link}
               to={Path.Home}
               variant="button"
-              color="text.primary"
               sx={{ my: 1, mx: 1 }}
             >
               Home

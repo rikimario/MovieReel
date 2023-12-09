@@ -6,11 +6,14 @@
 @import url(../components/my-account/my-account.css);
 @import url(../components/review/create-review.css);
 @import url(../components/review/your-reviews.css);
+@import url(../components/not-found/not-found.css);
 @import url(../components/review/all-reviews.css);
 @import url(../components/review/review-card.css);
 @import url(../components/register/register.css);
+@import url(../components/nav-bar/nav-bar.css);
 @import url(../components/review/reviews.css);
 @import url(../components/review/review.css);
+@import url(../components/footer/footer.css);
 @import url(../components/login/login.css);
 @import url(../components/home/home.css);
 @import url(../components/edit/edit.css);
