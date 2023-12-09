@@ -4,10 +4,10 @@ import { AuthProvider } from "./context/authContext.jsx";
 import Path from "./paths/paths.js";
 
 import Home from "./components/home/Home.jsx";
-import NavBar from "./components/NavBar.jsx";
+import NavBar from "./components/nav-bar/NavBar.jsx";
 import Login from "./components/login/Login.jsx";
 import Register from "./components/register/Register.jsx";
-import Footer from "./components/Footer.jsx";
+import Footer from "./components/footer/Footer.jsx";
 import MovieDetails from "./components/movie-details/MovieDetails.jsx";
 import MyAccount from "./components/my-account/MyAccount.jsx";
 import PopularMoviesPage from "./components/movies-popular/PopularMoviesPage.jsx";
@@ -19,6 +19,7 @@ import Reviews from "./components/review/Reviews.jsx";
 import Edit from "./components/edit/Edit.jsx";
 import AuthGuard from "./components/guards/AuthGuard.jsx";
 import Logout from "./components/logout/Logout.jsx";
+import NotFound from "./components/not-found/NotFound.jsx";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path={Path.Edit} element={<Edit />} />
           <Route path={Path.Logout} element={<Logout />} />
         </Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
 
       <Footer />
