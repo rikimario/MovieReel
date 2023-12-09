@@ -37,9 +37,6 @@ export default function Footer() {
         }}
       >
         <Container position="static" maxWidth="sm">
-          <Typography variant="body1">
-            My sticky footer can be found here.
-          </Typography>
           <Copyright />
         </Container>
       </Box>

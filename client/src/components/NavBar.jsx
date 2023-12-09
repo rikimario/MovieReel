@@ -17,9 +17,9 @@ import AuthContext from "../context/authContext";
 import Path from "../paths/paths";
 
 const settings = [
-  { label: "My Account", path: "/my-account" },
-  { label: "Create Review", path: "/create-review" },
-  { label: "Logout", path: "/logout" },
+  { label: "My Account", path: Path.MyAccount },
+  { label: "Create Review", path: Path.CreateReview },
+  { label: "Logout", path: Path.Logout },
 ];
 
 export default function NavBar() {
@@ -51,7 +51,7 @@ export default function NavBar() {
           <Typography
             variant="h3"
             component="div"
-            color="chocolate"
+            color="gray"
             sx={{ flexGrow: 1, fontWeight: 600 }}
           >
             MovieReel
@@ -104,9 +104,7 @@ export default function NavBar() {
                   onClick={handleOpenUserMenu}
                   component={Link}
                   to="#"
-                  variant="contained"
-                  color="success"
-                  sx={{ p: 2 }}
+                  variant="outlined"
                 >
                   {username}
                 </Button>
