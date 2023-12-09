@@ -3,16 +3,7 @@ import ReviewCard from "./ReviewCard";
 
 export default function Review() {
   return (
-    <Container
-      component="main"
-      maxWidth="lg"
-      sx={{
-        bgcolor: "whitesmoke",
-        height: "100vh",
-        textAlign: "center",
-        pt: 10,
-      }}
-    >
+    <Container className="review-container" component="main" maxWidth="lg">
       <ReviewCard />
     </Container>
   );
