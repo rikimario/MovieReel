@@ -4,14 +4,8 @@ import Path from "../../paths/paths";
 
 export default function YourReviews({ _id, title, review }) {
   return (
-    <Card
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        width: "100%",
-      }}
-    >
-      <Box sx={{ textAlign: "left" }}>
+    <Card className="your-review-card">
+      <Box>
         <Button
           variant="text"
           size="large"
