@@ -1,27 +1,21 @@
-import { Box, Button, Card, CardMedia, Typography } from "@mui/material";
+import { Box, Button, Card, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Path from "../../paths/paths";
 
 export default function AllReviews({ _id, title, review }) {
   return (
-    <Card
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        width: "100%",
-      }}
-    >
-      <Box sx={{ textAlign: "left" }}>
+    <Card>
+      <Box className="review-box">
         <Button
           variant="text"
           size="large"
           component={Link}
           to={`${Path.Review}/${_id}`}
-          sx={{ ml: 2 }}
+          sx={{ pl: 3 }}
         >
           {title}
         </Button>
-        <Typography variant="h6" sx={{ ml: 2 }}>
+        <Typography className="review-content" variant="h6">
           {review}
         </Typography>
       </Box>
