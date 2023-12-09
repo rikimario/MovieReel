@@ -5,12 +5,11 @@ import Path from "./paths/paths.js";
 
 import Home from "./components/home/Home.jsx";
 import NavBar from "./components/NavBar.jsx";
-import Login from "./components/Login.jsx";
-import Register from "./components/Register.jsx";
+import Login from "./components/login/Login.jsx";
+import Register from "./components/register/Register.jsx";
 import Footer from "./components/Footer.jsx";
 import MovieDetails from "./components/movie-details/MovieDetails.jsx";
 import MyAccount from "./components/my-account/MyAccount.jsx";
-import Logout from "./components/Logout.jsx";
 import PopularMoviesPage from "./components/movies-popular/PopularMoviesPage.jsx";
 import TopRatedPage from "./components/movies-top-rated/TopRatedPage.jsx";
 import ComingSoonPage from "./components/movies-coming-soon/ComingSoonPage.jsx";
@@ -19,6 +18,7 @@ import Review from "./components/review/Review.jsx";
 import Reviews from "./components/review/Reviews.jsx";
 import Edit from "./components/edit/Edit.jsx";
 import AuthGuard from "./components/guards/AuthGuard.jsx";
+import Logout from "./components/logout/Logout.jsx";
 
 function App() {
   return (
