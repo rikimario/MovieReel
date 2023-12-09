@@ -1,43 +1,28 @@
-import { Card, CardMedia, Container, Divider, Typography } from "@mui/material";
+import { Container, Divider, Typography } from "@mui/material";
 import YourReviewsMyAcc from "./YourReviewMyAcc";
+import { useContext } from "react";
+import AuthContext from "../../context/authContext";
 
 export default function MyAccount() {
+  const { email, username } = useContext(AuthContext);
   return (
     <>
-      <Container
-        component="main"
-        maxWidth="lg"
-        sx={{
-          bgcolor: "whitesmoke",
-          height: "100%",
-          textAlign: "center",
-          pt: 10,
-        }}
-      >
+      <Container className="my-acc-main" component="main" maxWidth="md">
         <Typography component="h1" variant="h3">
           My Account
         </Typography>
-        <Container
-          sx={{
-            textAlign: "left",
-            p: 5,
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          <Container sx={{ bgcolor: "white", ml: 1 }}>
+        <Container className="my-acc-box">
+          <Container className="my-acc-content">
             <Typography component="h1" variant="h4" sx={{ p: 2 }}>
-              First name: Mario
+              Username: {username}
             </Typography>
+
             <Typography component="h1" variant="h4" sx={{ p: 2 }}>
-              Last name: Valentinov
-            </Typography>
-            <Typography component="h1" variant="h4" sx={{ p: 2 }}>
-              Email: mario@abv.bg
+              Email: {email}
             </Typography>
           </Container>
         </Container>
-        <Divider variant="middle" sx={{ height: 20 }} />
+        <Divider variant="middle" sx={{ height: 100 }} />
 
         <YourReviewsMyAcc />
       </Container>

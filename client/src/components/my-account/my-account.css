@@ -1,0 +1,17 @@
+.my-acc-main {
+  background-color: gainsboro;
+  text-align: center;
+  padding: 5rem;
+}
+
+.my-acc-box {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  padding: 2rem;
+}
+
+.my-acc-content {
+  background-color: white;
+  border-radius: 10px;
+}
