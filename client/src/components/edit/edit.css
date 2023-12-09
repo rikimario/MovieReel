@@ -1,0 +1,11 @@
+.edit-main {
+  background-color: white;
+  margin-top: 11rem;
+  margin-bottom: 11rem;
+}
+
+.edit-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

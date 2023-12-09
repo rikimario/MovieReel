@@ -54,20 +54,9 @@ export default function Edit() {
   };
 
   return (
-    <Container
-      component="main"
-      maxWidth="sm"
-      sx={{ bgcolor: "white", my: 25.44 }}
-    >
+    <Container className="edit-main" component="main" maxWidth="sm">
       <CssBaseline />
-      <Box
-        sx={{
-          marginTop: 8,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <Box className="edit-box">
         <Typography component="h1" variant="h5" sx={{ mt: 2 }}>
           Edit Review
         </Typography>
