@@ -12,7 +12,13 @@ export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = usePersistedState("auth", {});
 
   const registerSubmitHandler = async (values) => {
-    const result = await authServices.register(values.email, values.password);
+    const result = await authServices.register(
+      values.email,
+      values.password,
+      values.username,
+      values.firstName,
+      values.lastName
+    );
 
     localStorage.setItem("accessToken", result.accessToken);
 
@@ -41,6 +47,8 @@ export const AuthProvider = ({ children }) => {
     logoutHandler,
     username: auth.username || auth.email,
     email: auth.email,
+    firsName: auth.firsName,
+    lastName: auth.lastName,
     userId: auth._id,
     isAuth: !!auth.accessToken,
   };
