@@ -1,0 +1,23 @@
+.my-acc-reviews {
+  padding-top: 5rem;
+}
+
+.reviews-title {
+  padding-bottom: 2rem;
+}
+
+.your-reviews-box {
+  border: 1px solid gray;
+}
+
+.your-reviews-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+h3 {
+  font-size: 3rem;
+  color: brown;
+}

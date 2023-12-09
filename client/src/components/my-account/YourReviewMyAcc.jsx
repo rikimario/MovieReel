@@ -25,26 +25,18 @@ export default function YourReviewsMyAcc() {
   }, [userId]);
 
   return (
-    <Container sx={{ pt: 10 }}>
-      <Typography component="h1" variant="h3">
+    <Container className="my-acc-reviews">
+      <Typography className="reviews-title" component="h1" variant="h3">
         Your Reviews
       </Typography>
-      <Container sx={{ pt: 6, border: "1px solid grey" }}>
-        <Container
-          maxWidth="false"
-          sx={{
-            maxWidth: "70%",
-            ml: 0,
-            display: "flex",
-            flexDirection: "row",
-            py: 5,
-          }}
-        >
+      <Container className="your-reviews-box">
+        <Container className="your-reviews-container" maxWidth="false">
           <Container
+            className="your-reviews-cards"
             sx={{
               display: "flex",
               flexDirection: "column",
-              gap: 2,
+              gap: 3,
             }}
           >
             {reviews.map((review) => (
