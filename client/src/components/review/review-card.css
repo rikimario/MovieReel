@@ -1,0 +1,16 @@
+.review-title {
+  color: whitesmoke;
+  text-align: center;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+}
+
+.card-content {
+  background-color: white;
+  min-height: 250px;
+  padding: 1.35rem;
+}

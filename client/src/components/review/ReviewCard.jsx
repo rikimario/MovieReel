@@ -37,27 +37,12 @@ export default function ListCard() {
 
   return (
     <Container sx={{ pt: 10 }}>
-      <Typography component="h1" variant="h3">
+      <Typography className="review-title" component="h1" variant="h3">
         {review.title}
       </Typography>
-      <Container
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          py: 5,
-        }}
-      >
-        <Card
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            bgcolor: "rgba(17,17,17,0.8)",
-            width: "100%",
-            minHeight: "250px",
-            p: 1.5,
-          }}
-        >
-          <Box sx={{ color: "white" }}>
+      <Container className="review-card">
+        <Card className="card-content">
+          <Box>
             <Typography variant="h5">{review.review}</Typography>
           </Box>
         </Card>
